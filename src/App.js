@@ -7,14 +7,16 @@ import Footer from "./components/Footer";
 import RegistrationScreen from "./screens/RegistrationScreen";
 import AdministrationLogin from "./screens/AdministrationLoginScreen";
 
+import Resource from "./screens/Resource";
+import Workshop from "./screens/Workshop";
+
+import WorkshopCondctorProfile from "./screens/WorkshopConductorProfile";
 
 import EditorDashboard from "./screens/EditorDashboard";
-
 
 import AdminDashboard from "./screens/AdminDashboard";
 import ReviewerDashboard from "./screens/ReviewerDashboard";
 import Home from "./screens/Home";
-
 
 const App = () => {
   return (
@@ -39,16 +41,21 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
         </Switch>
-    
-     
 
-
-   
-   
-
-
-    
-
+        <Switch>
+          <Route exact path="/workshop/:id" component={Workshop} />
+        </Switch>
+ 
+        <Switch>
+          <Route
+            exact
+            path="/profile/wconductor"
+            component={WorkshopCondctorProfile}
+          />
+        </Switch>
+        <Switch>
+          <Route exact path="/resources" component={Resource} />
+        </Switch>
       </main>
       <Footer />
     </BRouter>
