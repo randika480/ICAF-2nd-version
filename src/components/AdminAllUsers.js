@@ -7,7 +7,7 @@ const AdminAllUsers = (props) => {
   const [visible2, setVisible2] = React.useState(false);
   const [visible3, setVisible3] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
-  const [modalText, setModalText] = React.useState("");
+  // const [modalText, setModalText] = React.useState("");
 
   const [searchTerm, setsearchTerm] = useState("");
 
@@ -24,7 +24,7 @@ const AdminAllUsers = (props) => {
   };
 
   const handleOk = () => {
-    setModalText("The modal will be closed after two seconds");
+    // setModalText("The modal will be closed after two seconds");
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible(false);
@@ -32,7 +32,7 @@ const AdminAllUsers = (props) => {
     });
   };
   const handleOk2 = () => {
-    setModalText("The modal will be closed after two seconds");
+    // setModalText("The modal will be closed after two seconds");
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible2(false);
@@ -41,7 +41,7 @@ const AdminAllUsers = (props) => {
   };
 
   const handleOk3 = () => {
-    setModalText("The modal will be closed after two seconds");
+    // setModalText("The modal will be closed after two seconds");
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible3(false);
@@ -73,7 +73,7 @@ const AdminAllUsers = (props) => {
             </Col>
             <Col span={2} xs={24} sm={24} md={24} lg={2} xl={2}>
               <Badge count={props.researcherCounter} onClick={showModal}>
-                <a href="#" className="head-example" />
+                <a  className="head-example" />
               </Badge>
             </Col>
           </Row>
@@ -86,7 +86,7 @@ const AdminAllUsers = (props) => {
             </Col>
             <Col span={2} xs={24} sm={24} md={24} lg={2} xl={2}>
               <Badge count={props.wCCounter} onClick={showModal2}>
-                <a href="#" className="head-example" />
+                <a  className="head-example" />
               </Badge>
             </Col>
           </Row>
@@ -101,7 +101,7 @@ const AdminAllUsers = (props) => {
               {" "}
        
               <Badge count={props.attendeeCounter} onClick={showModal3}>
-                <a href="#" className="head-example" />
+                <a  className="head-example" />
               </Badge>
             </Col>
           </Row>
@@ -127,15 +127,15 @@ const AdminAllUsers = (props) => {
           />
           <br />
           {props.user
-            .filter((val) => {
-              if (searchTerm === "") {
-                return val;
-              } else if (
-                val.username.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return val;
-              }
-            })
+            // .filter((val) => {
+            //   if (searchTerm === "") {
+            //     return val;
+            //   } else if (
+            //     val.username.toLowerCase().includes(searchTerm.toLowerCase())
+            //   ) {
+            //     return val;
+            //   }
+            // })
             .filter((wrk) => wrk.role === "researcher")
             .map((users, index) => (
               <div key={index}>
@@ -176,15 +176,15 @@ const AdminAllUsers = (props) => {
           />
           <br />
           {props.user
-            .filter((val) => {
-              if (searchTerm === "") {
-                return val;
-              } else if (
-                val.username.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return val;
-              }
-            })
+            // .filter((val) => {
+            //   if (searchTerm === "") {
+            //     return val;
+            //   } else if (
+            //     val.username.toLowerCase().includes(searchTerm.toLowerCase())
+            //   ) {
+            //     return val;
+            //   }
+            // })
             .filter((wrk) => wrk.role === "workshop conductor")
             .map((users, index) => (
               <div key={index}>
@@ -225,15 +225,15 @@ const AdminAllUsers = (props) => {
           />
           <br />
           {props.user
-            .filter((val) => {
-              if (searchTerm === "") {
-                return val;
-              } else if (
-                val.username.toLowerCase().includes(searchTerm.toLowerCase())
-              ) {
-                return val;
-              }
-            })
+            // .filter((val) => {
+            //   if (searchTerm === "") {
+            //     return val;
+            //   } else if (
+            //     val.username.toLowerCase().includes(searchTerm.toLowerCase())
+            //   ) {
+            //     return val;
+            //   }
+            // })
             .filter((wrk) => wrk.role === "attendee")
             .map((users, index) => (
               <div key={index}>

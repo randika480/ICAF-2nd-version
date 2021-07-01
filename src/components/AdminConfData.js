@@ -11,7 +11,7 @@ const AdminConfData = (props) => {
   const [visible3, setVisible3] = React.useState(false);
   const [visible4, setVisible4] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
-  const [modalText, setModalText] = React.useState("");
+  // const [modalText, setModalText] = React.useState("");
 
 
   const [keynoteSpeakers, setKeynoteSpeakers] = useState([]);
@@ -99,7 +99,7 @@ const AdminConfData = (props) => {
   };
 
   const handleOk = () => {
-    setModalText("The modal will be closed after two seconds");
+    // setModalText("The modal will be closed after two seconds");
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible(false);
@@ -107,7 +107,7 @@ const AdminConfData = (props) => {
     });
   };
   const handleOk2 = () => {
-    setModalText("The modal will be closed after two seconds");
+    // setModalText("The modal will be closed after two seconds");
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible2(false);
@@ -116,7 +116,7 @@ const AdminConfData = (props) => {
   };
 
   const handleOk3 = () => {
-    setModalText("The modal will be closed after two seconds");
+    // setModalText("The modal will be closed after two seconds");
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible3(false);
@@ -125,7 +125,7 @@ const AdminConfData = (props) => {
   };
 
   const handleOk4 = () => {
-    setModalText("The modal will be closed after two seconds");
+    // setModalText("The modal will be closed after two seconds");
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible4(false);
