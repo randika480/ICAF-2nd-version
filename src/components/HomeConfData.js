@@ -10,11 +10,9 @@ const HomeConfData = () => {
 
   useEffect(() => {
     const getConference = async () => {
-
-      alert()
       try {
         await axios
-          .get("https://af-test-grid.herokuapp.com/grid/api/guest/getConference")
+          .get("http://localhost:6500/grid/api/guest/getConference")
           .then((res) => {
             setConference(res.data.latestConference);
           })

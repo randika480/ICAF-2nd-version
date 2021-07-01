@@ -10,8 +10,8 @@ const CountDown = (props) => {
  
 
   const getConfDate  =() => {
-
-   
+    props.conference.period;
+    props.conference.startingTime
     let date = props.conference.period.split("-")
 
     let time = props.conference.startingTime.split(" ")
