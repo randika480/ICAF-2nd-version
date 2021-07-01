@@ -58,7 +58,7 @@ const Header = () => {
     let postObject = { email, password, role: loginRole };
 
     await axios
-      .post("http://localhost:6500/grid/api/auth/login", postObject)
+      .post("https://af-test-grid.herokuapp.com/grid/api/auth/login", postObject)
       .then((res) => {
         localStorage.setItem("authToken", res.data.token);
         localStorage.setItem("userRole", res.data.user.role);
