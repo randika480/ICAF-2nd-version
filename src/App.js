@@ -68,7 +68,7 @@ const App = () => {
           />
         </Switch>
         <Switch>
-          <Route exact path="/" component={conferencecover} />
+          <Route exact path="/conference" component={conferencecover} />
         </Switch>
        
 
