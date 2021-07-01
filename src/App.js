@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 import RegistrationScreen from "./screens/RegistrationScreen";
 import AdministrationLogin from "./screens/AdministrationLoginScreen";
 
+import ResearcherProfile from "./screens/ResearcherProfile";
+import conferencecover from "./screens/ConferenceCover";
+
 import Resource from "./screens/Resource";
 import Workshop from "./screens/Workshop";
 
@@ -56,6 +59,20 @@ const App = () => {
         <Switch>
           <Route exact path="/resources" component={Resource} />
         </Switch>
+
+        <Switch>
+          <Route
+            exact
+            path="/profile/researcher"
+            component={ResearcherProfile}
+          />
+        </Switch>
+
+        <Switch>
+          <Route exact path="/" component={conferencecover} />
+        </Switch>
+
+
       </main>
       <Footer />
     </BRouter>
