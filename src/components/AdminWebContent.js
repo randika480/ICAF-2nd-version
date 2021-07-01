@@ -34,7 +34,7 @@ const AdminWebContent = () => {
     try {
       await axios
         .delete(
-          `http://localhost:6500/grid/api/adminpvt/deleteGalleryContent/${nID}`,
+          `https://af-test-grid.herokuapp.com/grid/api/adminpvt/deleteGalleryContent/${nID}`,
           config
         )
         .then((res) => {
@@ -61,7 +61,7 @@ const AdminWebContent = () => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageHomeContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageHomeContent",
           dataObject,
           config
         )
@@ -89,7 +89,7 @@ const AdminWebContent = () => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageUserGuidContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageUserGuidContent",
           dataObject,
           config
         )
@@ -117,7 +117,7 @@ const AdminWebContent = () => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageGalleryContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageGalleryContent",
           dataObject,
           config
         )
@@ -145,7 +145,7 @@ const AdminWebContent = () => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageNewsTimelines",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageNewsTimelines",
           dataObject,
           config
         )
@@ -165,7 +165,7 @@ const AdminWebContent = () => {
     };
     try {
       await axios
-        .get("http://localhost:6500/grid/api/adminpvt/getGalleryImages", config)
+        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getGalleryImages", config)
         .then((res) => {
           setGalleryImg(res.data.gallery);
         })
@@ -185,7 +185,7 @@ const AdminWebContent = () => {
     };
     try {
       await axios
-        .get("http://localhost:6500/grid/api/adminpvt/getNotification", config)
+        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getNotification", config)
         .then((res) => {
           for (let i = 0; i < res.data.notifications.length; i++) {
             if (res.data.notifications[i].subject.includes("Request")) {
@@ -219,7 +219,7 @@ const AdminWebContent = () => {
     };
     try {
       await axios
-        .get("http://localhost:6500/grid/api/adminpvt/getHomeContent", config)
+        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getHomeContent", config)
         .then((res) => {
           sethomenotice(res.data.homenotices);
         })
@@ -240,7 +240,7 @@ const AdminWebContent = () => {
     try {
       await axios
         .get(
-          "http://localhost:6500/grid/api/adminpvt/getUserGuideContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/getUserGuideContent",
           config
         )
         .then((res) => {
@@ -262,7 +262,7 @@ const AdminWebContent = () => {
     };
     try {
       await axios
-        .get("http://localhost:6500/grid/api/adminpvt/getNewsTimelines", config)
+        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getNewsTimelines", config)
         .then((res) => {
           settimeline(res.data.newsTimelineData);
         })

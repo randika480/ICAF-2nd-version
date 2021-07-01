@@ -5,7 +5,7 @@ import "./AdminConfData.css";
 
 const AdminAllWorkshops = (props) => {
   const [searchTerm, setsearchTerm] = useState("");
-  const [searchTerm2, setsearchTerm2] = useState("");
+  
   return (
     <div>
       <div className="Data">

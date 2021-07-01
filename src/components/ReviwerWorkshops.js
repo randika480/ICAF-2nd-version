@@ -24,7 +24,7 @@ const ReviwerWorkshops = (props) => {
     }
     try {
       await axios
-        .put("http://localhost:6500/grid/api/reviewerpvt/approveWorkshops", 
+        .put("https://af-test-grid.herokuapp.com/grid/api/reviewerpvt/approveWorkshops", 
           dataObject,
           config
         )

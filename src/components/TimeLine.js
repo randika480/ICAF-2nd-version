@@ -10,7 +10,7 @@ const TimeLine = () => {
     const getTimeLine = async () => {
       try {
         await axios
-          .get("http://localhost:6500/grid/api/guest/getTimeline")
+          .get("https://af-test-grid.herokuapp.com/grid/api/guest/getTimeline")
           .then((res) => {
             settimeline(res.data.timelines);
           })

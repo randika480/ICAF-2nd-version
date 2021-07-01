@@ -18,7 +18,7 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `http://localhost:6500/grid/api/adminpvt/deleteHomeContent/${nID}`,config
+          `https://af-test-grid.herokuapp.com/grid/api/adminpvt/deleteHomeContent/${nID}`,config
         )
         .then((res) => {
           ignore(nID);
@@ -41,7 +41,7 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `http://localhost:6500/grid/api/adminpvt/deleteTimelines/${nID}`,config
+          `https://af-test-grid.herokuapp.com/grid/api/adminpvt/deleteTimelines/${nID}`,config
         )
         .then((res) => {
           ignore(nID);
@@ -63,7 +63,7 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `http://localhost:6500/grid/api/adminpvt/deleteUserGuidContent/${nID}`,config
+          `https://af-test-grid.herokuapp.com/grid/api/adminpvt/deleteUserGuidContent/${nID}`,config
         )
         .then((res) => {
           ignore(nID);
@@ -93,7 +93,7 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `http://localhost:6500/grid/api/notifi/deleteNotification/${nID}`, config
+          `https://af-test-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`, config
         )
         .then((res) => {
           window.location.reload(false);

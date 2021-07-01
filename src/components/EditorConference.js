@@ -39,7 +39,7 @@ const EditorConference = (props) => {
     };
     await axios
       .post(
-        "http://localhost:6500/grid/api/editorpvt/addConference",
+        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addConference",
         postObj,
         config
       )

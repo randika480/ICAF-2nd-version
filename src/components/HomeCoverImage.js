@@ -11,7 +11,7 @@ const HomeCoverImage = () => {
       const getGalleryImg = async () => {
         try {
           await axios
-            .get("http://localhost:6500/grid/api/guest/getNotices")
+            .get("https://af-test-grid.herokuapp.com/grid/api/guest/getNotices")
             .then((res) => {
                 setHomeNotices(res.data.allNotices);
             })

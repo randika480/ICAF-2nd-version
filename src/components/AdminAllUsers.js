@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col, Button, Modal, Divider, Badge } from "antd";
+import { Row, Col, Modal, Divider, Badge } from "antd";
 import { ListGroup, Table } from "react-bootstrap";
 
 const AdminAllUsers = (props) => {

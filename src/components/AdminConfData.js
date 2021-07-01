@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import { Modal, Button, Divider } from "antd";
 import { Image } from "cloudinary-react";
@@ -13,8 +13,7 @@ const AdminConfData = (props) => {
   const [confirmLoading, setConfirmLoading] = React.useState(false);
   const [modalText, setModalText] = React.useState("");
 
-  // const [conferences, setConferences] = useState([]);
-  // const [CurrentConf, setCurrentConf] = useState("");
+
   const [keynoteSpeakers, setKeynoteSpeakers] = useState([]);
   const [guestSpeakers, setGuestSpeakers] = useState([]);
   const [workshops, setWorkshops] = useState([]);
@@ -71,7 +70,7 @@ const AdminConfData = (props) => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageConfContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageConfContent",
           dataObject,
           config
         )

@@ -113,7 +113,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageHomeContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageHomeContent",
           dataObject,
           config
         )
@@ -141,7 +141,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageUserGuidContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageUserGuidContent",
           dataObject,
           config
         )
@@ -169,7 +169,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageGalleryContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageGalleryContent",
           dataObject,
           config
         )
@@ -196,7 +196,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .put(
-          "http://localhost:6500/grid/api/adminpvt/manageNewsTimelines",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageNewsTimelines",
           dataObject,
           config
         )
@@ -216,7 +216,7 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("http://localhost:6500/grid/api/adminpvt/getHomeContent", config)
+        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getHomeContent", config)
         .then((res) => {
           for (var i = 0; i < res.data.homenotices.length; i++) {
             if (res.data.homenotices[i].status === "pending") {
@@ -243,7 +243,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .get(
-          "http://localhost:6500/grid/api/adminpvt/getUserGuideContent",
+          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/getUserGuideContent",
           config
         )
         .then((res) => {
@@ -270,7 +270,7 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("http://localhost:6500/grid/api/adminpvt/getGalleryImages", config)
+        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getGalleryImages", config)
         .then((res) => {
           for (var i = 0; i < res.data.gallery.length; i++) {
             if (res.data.gallery[i].status === "pending") {
@@ -296,7 +296,7 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("http://localhost:6500/grid/api/adminpvt/getNewsTimelines", config)
+        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getNewsTimelines", config)
         .then((res) => {
           for (var i = 0; i < res.data.newsTimelineData.length; i++) {
             if (res.data.newsTimelineData[i].status === "pending") {

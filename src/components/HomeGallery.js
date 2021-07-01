@@ -10,7 +10,7 @@ const HomeGallery = () => {
     const getGalleryImg = async () => {
       try {
         await axios
-          .get("http://localhost:6500/grid/api/guest/getGalleryImages")
+          .get("https://af-test-grid.herokuapp.com/grid/api/guest/getGalleryImages")
           .then((res) => {
             setGalleryImg(res.data.gallery);
           })

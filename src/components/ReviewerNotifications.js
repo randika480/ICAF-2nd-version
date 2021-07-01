@@ -14,7 +14,7 @@ const ReviewerNotifications = (props) => {
   
     try {
       await axios
-        .put("http://localhost:6500/grid/api/notifi/editNotification", {
+        .put("https://af-test-grid.herokuapp.com/grid/api/notifi/editNotification", {
           nID: nID,
         })
         .then(() => {
@@ -30,7 +30,7 @@ const ReviewerNotifications = (props) => {
     try {
       await axios
         .delete(
-          `http://localhost:6500/grid/api/notifi/deleteNotification/${nID}`
+          `https://af-test-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`
         )
         .then(() => {
           window.location.reload(false);
@@ -50,7 +50,7 @@ const ReviewerNotifications = (props) => {
       try {
         await axios
           .get(
-            "http://localhost:6500/grid/api/reviewerpvt/getSentNotifications",
+            "https://af-test-grid.herokuapp.com/grid/api/reviewerpvt/getSentNotifications",
             config
           )
           .then((res) => {
