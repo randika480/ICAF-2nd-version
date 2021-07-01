@@ -8,7 +8,7 @@ import RegistrationScreen from "./screens/RegistrationScreen";
 import AdministrationLogin from "./screens/AdministrationLoginScreen";
 
 import ResearcherProfile from "./screens/ResearcherProfile";
-import conferencecover from "./screens/ConferenceCover";
+
 
 import Resource from "./screens/Resource";
 import Workshop from "./screens/Workshop";
@@ -68,9 +68,7 @@ const App = () => {
           />
         </Switch>
 
-        <Switch>
-          <Route exact path="/" component={conferencecover} />
-        </Switch>
+       
 
 
       </main>
