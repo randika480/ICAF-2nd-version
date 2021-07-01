@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as BRouter, Switch, Route } from "react-router-dom";
+import "./App.css";
 
-function App() {
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+
+
+
+
+
+
+
+
+
+import AdminDashboard from "./screens/AdminDashboard";
+import ReviewerDashboard from "./screens/ReviewerDashboard";
+import Home from "./screens/Home";
+
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BRouter>
+      <Header />
+      <main className="page-body-content">
+       
+       
+        <Switch>
+          <Route exact path="/profile/admin" component={AdminDashboard} />
+        </Switch>
+       
+        <Switch>
+          <Route exact path="/profile/reviewer" component={ReviewerDashboard} />
+        </Switch>
+        <Switch>
+          <Route exact path="/" component={Home} />
+        </Switch>
+  
+
+   
+   
+      
+
+
+
+      </main>
+      <Footer />
+    </BRouter>
   );
-}
+};
 
 export default App;
