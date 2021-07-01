@@ -23,7 +23,7 @@ import Home from "./screens/Home";
 const App = () => {
   return (
     <BRouter>
-     
+      <Header />
       <main className="page-body-content">
        
        
@@ -46,7 +46,7 @@ const App = () => {
 
 
       </main>
-   
+      <Footer />
     </BRouter>
   );
 };
