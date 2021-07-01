@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Workshop.css';
+import './confcard.css';
 import { Container } from "react-bootstrap";
 import { Card  } from "antd";
 
@@ -15,7 +16,7 @@ function Workshop({id}) {
         const getWorkshops = async (id) => {
             try{
                 await axios
-                .get(`https://af-test-grid.herokuapp.com/grid/api/guest/getWorkshop/${id}`)
+                .get(`http://localhost:6500/grid/api/guest/getWorkshop/${id}`)
                 .then((res) =>{
                     setWorkshop(res.data.workshop.workshopData);
                     setConductName(res.data.workshop.username)
