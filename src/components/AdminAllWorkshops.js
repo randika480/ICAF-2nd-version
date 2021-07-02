@@ -22,13 +22,13 @@ const AdminAllWorkshops = (props) => {
           />
           <Divider />
           {props.workshopData
-            // .filter((val) => {
-            //   if (searchTerm === "") {
-            //     return val;
-            //   } else if (val._id.includes(searchTerm)) {
-            //     return val;
-            //   }
-            // })
+            .filter((val) => {
+              if (searchTerm === "") {
+                return val;
+              } else if (val._id.includes(searchTerm)) {
+                return val;
+              }
+            })
             .map((Workshop, index) => (
               <div key={index}>
                 <h6>Workshop conductor ID : {Workshop._id}</h6>

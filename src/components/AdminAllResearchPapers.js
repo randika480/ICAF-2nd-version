@@ -22,13 +22,13 @@ const AdminAllResearchPapers = (props) => {
             />
             <Divider />
             {props.rPaperData
-              // .filter((val) => {
-              //   if (searchTerm === "") {
-              //     return val;
-              //   } else if (val._id.includes(searchTerm)) {
-              //     return val;
-              //   }
-              // })
+              .filter((val) => {
+                if (searchTerm === "") {
+                  return val;
+                } else if (val._id.includes(searchTerm)) {
+                  return val;
+                }
+              })
               .map((rPaper, index) => (
                 <div key={index}>
                   <h6>Reasercher ID : {rPaper._id}</h6>

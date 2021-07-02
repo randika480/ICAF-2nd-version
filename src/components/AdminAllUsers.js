@@ -127,15 +127,15 @@ const AdminAllUsers = (props) => {
           />
           <br />
           {props.user
-            // .filter((val) => {
-            //   if (searchTerm === "") {
-            //     return val;
-            //   } else if (
-            //     val.username.toLowerCase().includes(searchTerm.toLowerCase())
-            //   ) {
-            //     return val;
-            //   }
-            // })
+            .filter((val) => {
+              if (searchTerm === "") {
+                return val;
+              } else if (
+                val.username.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return val;
+              }
+            })
             .filter((wrk) => wrk.role === "researcher")
             .map((users, index) => (
               <div key={index}>

@@ -35,7 +35,7 @@ const Addresarchppr = (props) => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/addresearchdata",
+          "http://localhost:6500/grid/api/researcherpvt/addresearchdata",
           dataObject,
           config
         )
