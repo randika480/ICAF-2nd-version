@@ -22,6 +22,7 @@ import AttendeeProfile from "./screens/AttendeeScreen";
 import AdminDashboard from "./screens/AdminDashboard";
 import ReviewerDashboard from "./screens/ReviewerDashboard";
 import Home from "./screens/Home";
+import Templates from "./screens/Templates";
 
 const App = () => {
   return (
@@ -80,6 +81,13 @@ const App = () => {
         <Switch>
         <Route exact path="/research/:id" component={Research} /> 
         </Switch>
+
+
+        <Switch>
+        <Route exact path="/templates" component={Templates} /> 
+        </Switch>
+
+
       </main>
       <Footer />
     </BRouter>
