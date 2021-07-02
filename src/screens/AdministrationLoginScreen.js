@@ -25,7 +25,7 @@ const AdministrationLogin = () => {
       let postObject = { email, password, role: loginRole };
 
       await axios
-        .post("https://af-test-grid.herokuapp.com/grid/api/auth/login", postObject)
+        .post("https://icaf-backend-grid.herokuapp.com/grid/api/auth/login", postObject)
         .then((res) => {
           localStorage.setItem("authToken", res.data.token);
           localStorage.setItem("userRole", res.data.user.role);

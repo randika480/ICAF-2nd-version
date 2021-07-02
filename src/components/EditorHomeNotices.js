@@ -25,7 +25,7 @@ const EditorHomeNotices = () => {
   useEffect(() => {
     const fetchNoticeData = async () => {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/guest/getNotices")
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getNotices")
         .then((res) => {
           setNoticeData(res.data.allNotices);
         })
@@ -45,7 +45,7 @@ const EditorHomeNotices = () => {
     let postObject = { title, description };
     await axios
       .post(
-        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addNotice",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/addNotice",
         postObject,
         config
       )
@@ -67,7 +67,7 @@ const EditorHomeNotices = () => {
     const postObj = { nID: selectedID, title, description, status: "pending" };
     await axios
       .put(
-        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/editNotice",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/editNotice",
         postObj,
         config
       )
@@ -92,7 +92,7 @@ const EditorHomeNotices = () => {
     const postObj = { nID: id };
     await axios
       .put(
-        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/requestNoticeRemove",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/requestNoticeRemove",
         postObj,
         config
       )

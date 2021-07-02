@@ -18,7 +18,7 @@ const EditorTemplates = () => {
       postObj = { encPDF: file };
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addResearchTemplate",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/addResearchTemplate",
           postObj,
           config
         )
@@ -33,7 +33,7 @@ const EditorTemplates = () => {
       postObj = { encPPT: file };
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addWorkshopTemplate",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/addWorkshopTemplate",
           postObj,
           config
         )

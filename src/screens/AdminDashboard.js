@@ -64,7 +64,7 @@ const AdminDashboard = () => {
     try {
       await axios
         .get(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/getAllConferences",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getAllConferences",
           config
         )
         .then((res) => {
@@ -90,7 +90,7 @@ const AdminDashboard = () => {
     };
     try {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getUsersData", config)
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getUsersData", config)
         .then((res) => {
           for (var i = 0; i < res.data.allusers.length; i++) {
             if (res.data.allusers[i].role === "researcher") {
@@ -132,7 +132,7 @@ const AdminDashboard = () => {
     try {
       await axios
         .get(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/getResearchPapers",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getResearchPapers",
           config
         )
         .then((res) => {
@@ -181,7 +181,7 @@ const AdminDashboard = () => {
     try {
       await axios
         .get(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/getWorkshopProposals",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getWorkshopProposals",
           config
         )
         .then((res) => {

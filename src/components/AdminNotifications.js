@@ -40,7 +40,7 @@ const AdminNotifications = () => {
     const nID = id;
     try {
       await axios
-        .put("https://af-test-grid.herokuapp.com/grid/api/notifi/editNotification", {
+        .put("https://icaf-backend-grid.herokuapp.com/grid/api/notifi/editNotification", {
           nID: nID,
         })
         .then(() => {
@@ -56,7 +56,7 @@ const AdminNotifications = () => {
     try {
       await axios
         .delete(
-          `https://af-test-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`
+          `https://icaf-backend-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`
         )
         .then(() => {
           window.location.reload(false);
@@ -75,7 +75,7 @@ const AdminNotifications = () => {
     try {
       await axios
         .get(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/getSentNotifications",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getSentNotifications",
           config
         )
         .then((res) => {
@@ -103,7 +103,7 @@ const AdminNotifications = () => {
     };
     try {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getNotification", config)
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getNotification", config)
         .then((res) => {
           for (var i = 0; i < res.data.notifications.length; i++) {
             if (res.data.notifications[i].status === "unread") {

@@ -12,7 +12,7 @@ const HomeConfData = () => {
     const getConference = async () => {
       try {
         await axios
-          .get("https://af-test-grid.herokuapp.com/grid/api/guest/getConference")
+          .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getConference")
           .then((res) => {
             setConference(res.data.latestConference);
           })

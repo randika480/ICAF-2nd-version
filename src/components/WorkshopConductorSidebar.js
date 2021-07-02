@@ -32,7 +32,7 @@ const WorkshopConductorSidebar = () => {
           try{
               await axios
                 .get(
-                    "https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposal/notify",
+                    "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposal/notify",
                     config
                 )
                 .then((res)=>{
@@ -65,7 +65,7 @@ const WorkshopConductorSidebar = () => {
             };
             try{
                 await axios
-                    .get("https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor",config)
+                    .get("https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor",config)
                     .then((res) => {
                         setUsername(res.data.workshopConductor.username);
                         setEmail(res.data.workshopConductor.email);

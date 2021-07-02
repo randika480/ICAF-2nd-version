@@ -12,7 +12,7 @@ const WorkshopNotification = () => {
         try {
           await axios
             .delete(
-              `https://af-test-grid.herokuapp.com/grid/api/deleteNotification/${nID}`
+              `https://icaf-backend-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`
             )
             .then(() => {
                 alert("Notification Deleted");
@@ -35,7 +35,7 @@ const WorkshopNotification = () => {
               try{
                   await axios
                     .get(
-                        "https://af-test-grid.herokuapp.com/grid/api/workshopconductor/proposal/notify",
+                        "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposal/notify",
                         config
                     )
                     .then((res)=>{

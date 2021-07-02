@@ -78,7 +78,7 @@ const ResearcherNotifications = (props) => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/managePayment",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/managePayment",
           dataObject,
           config
         )
@@ -101,7 +101,7 @@ const ResearcherNotifications = (props) => {
       try {
         await axios
           .get(
-            "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/notifyresearchdata",
+            "https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/notifyresearchdata",
             config
           )
           .then((res) => {

@@ -39,7 +39,7 @@ const EditorConference = (props) => {
     };
     await axios
       .post(
-        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addConference",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/addConference",
         postObj,
         config
       )
@@ -69,7 +69,7 @@ const EditorConference = (props) => {
     };
     await axios
       .patch(
-        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/editConference",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/editConference",
         postObject,
         config
       )
@@ -100,7 +100,7 @@ const EditorConference = (props) => {
 
     await axios
       .put(
-        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addSpeaker",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/addSpeaker",
         postObject,
         config
       )
@@ -132,7 +132,7 @@ const EditorConference = (props) => {
     if (type !== "" && speakerID !== "") {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/editorpvt/editSpeaker",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/editSpeaker",
           postObject,
           config
         )
@@ -161,13 +161,12 @@ const EditorConference = (props) => {
 
     await axios
       .put(
-        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addSpeaker",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/requestSpeakerRemove",
         postObject,
         config
       )
       .then((res) => {
-        alert("New speaker added! -Submited to admin");
-        ctx.onConfChange(res.data.updatedConference);
+        alert("Speaker removal reques submited to admin");
       })
       .catch((err) => {
         alert("ERROR! " + err);
@@ -542,6 +541,13 @@ const EditorConference = (props) => {
 
                     <Button variant="warning" type="submit">
                       Update
+                    </Button>
+                    <Button
+                      style={{ marginLeft: "1vh" }}
+                      variant="danger"
+                      onClick={requestRemoveSpeaker}
+                    >
+                      Request to Delete
                     </Button>
                   </Form>
                 </div>

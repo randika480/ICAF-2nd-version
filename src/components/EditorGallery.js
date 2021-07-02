@@ -17,12 +17,12 @@ const EditorGallery = () => {
     let postObject = { fileEnc };
     await axios
       .post(
-        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addGallery",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/addGallery",
         postObject,
         config
       )
       .then((res) => {
-        alert("New Timeline added!");
+        alert("New Image added!");
         setDataStatus(!dataStatus);
       })
       .catch((err) => {

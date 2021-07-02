@@ -18,10 +18,10 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `https://af-test-grid.herokuapp.com/grid/api/adminpvt/deleteHomeContent/${nID}`,config
+          `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteHomeContent/${nID}`,config
         )
         .then((res) => {
-          ignore(nID);
+          ignoreRequest(nID);
           window.location.reload(false);
         });
     } catch (err) {
@@ -41,10 +41,10 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `https://af-test-grid.herokuapp.com/grid/api/adminpvt/deleteTimelines/${nID}`,config
+          `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteTimelines/${nID}`,config
         )
         .then((res) => {
-          ignore(nID);
+          ignoreRequest(nID);
           window.location.reload(false);
         });
     } catch (err) {
@@ -63,10 +63,10 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `https://af-test-grid.herokuapp.com/grid/api/adminpvt/deleteUserGuidContent/${nID}`,config
+          `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteUserGuidContent/${nID}`,config
         )
         .then((res) => {
-          ignore(nID);
+          ignoreRequest(nID);
           window.location.reload(false);
         });
     } catch (err) {
@@ -93,7 +93,7 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `https://af-test-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`, config
+          `https://icaf-backend-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`, config
         )
         .then((res) => {
           window.location.reload(false);

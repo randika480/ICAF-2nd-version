@@ -78,7 +78,7 @@ const WorkshopConductor = (props) => {
         try{
             await axios
                 .put(
-                    "https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/update",
+                    "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/update",
                     dataObject,
                     config
                 )
@@ -107,7 +107,7 @@ const WorkshopConductor = (props) => {
     try{
         await axios
         .put(
-            "https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/updatepp",
+            "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/updatepp",
             dataObject,
             config
         )
@@ -132,7 +132,7 @@ const WorkshopConductor = (props) => {
         try{
             await axios
                .delete(
-                   "https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/delete",
+                   "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/delete",
                    config
                )
                .then((res) =>{

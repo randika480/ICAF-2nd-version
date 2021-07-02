@@ -12,6 +12,7 @@ const EditorTimeline = () => {
   const [selectedID, setSelectedID] = useState("");
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
+  const [position, setPosition] = useState(0);
 
   const showModal = () => {
     setVisible(true);
@@ -25,9 +26,9 @@ const EditorTimeline = () => {
   useEffect(() => {
     const fetchTimelineData = async () => {
       await axios
-        .get("http://localhost:6500/grid/api/guest/getTimeline")
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getTimeline")
         .then((res) => {
-          setTimelineData(res.data.allNews);
+          setTimelineData(res.data.timelines);
         })
         .catch((err) => {
           alert("Error! " + err);
@@ -42,10 +43,10 @@ const EditorTimeline = () => {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
       },
     };
-    let postObject = { title, description };
+    let postObject = { title, description, position };
     await axios
       .post(
-        "http://localhost:6500/grid/api/editorpvt/addNews",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/addNews",
         postObject,
         config
       )
@@ -66,7 +67,7 @@ const EditorTimeline = () => {
     };
     const postObj = { ntID: selectedID, title, description, status: "pending" };
     await axios
-      .put("http://localhost:6500/grid/api/editorpvt/editNews", postObj, config)
+      .put("https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/editNews", postObj, config)
       .then((res) => {
         alert("Timeline update request sent to admin!");
         setConfirmLoading(false);
@@ -88,7 +89,7 @@ const EditorTimeline = () => {
     const postObj = { nID: id };
     await axios
       .put(
-        "http://localhost:6500/grid/api/editorpvt/requestNewsRemove",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/requestNewsRemove",
         postObj,
         config
       )
@@ -150,6 +151,7 @@ const EditorTimeline = () => {
   return (
     <div>
       <h1>Timeline</h1>
+      
       <div style={{ marginTop: "4vh" }}>
         <Row>
           <ListGroup horizontal defaultActiveKey="#link1">
@@ -195,6 +197,19 @@ const EditorTimeline = () => {
                       value={description}
                       onChange={(e) => {
                         setDescription(e.target.value);
+                      }}
+                    />
+                  </Form.Group>
+                </Form.Row>
+                <Form.Row>
+                  <Form.Group as={Col} md={12}>
+                    <Form.Label>Position</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Timeline event position"
+                      value={position}
+                      onChange={(e) => {
+                        setPosition(e.target.value);
                       }}
                     />
                   </Form.Group>

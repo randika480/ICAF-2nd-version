@@ -76,7 +76,7 @@ const Researcherdetails = (props) => {
     try {
       await axios
         .delete(
-          "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/deleteprofile",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/deleteprofile",
           config
         )
         .then((res) => {
@@ -107,7 +107,7 @@ const Researcherdetails = (props) => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/updatepp",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/updatepp",
           datapic,
           config
         )
@@ -149,7 +149,7 @@ const Researcherdetails = (props) => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/editProfile",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/editProfile",
           dataObject,
           config
         )

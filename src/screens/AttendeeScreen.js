@@ -27,7 +27,7 @@ const AttendeeProfile = () => {
     setDataLoaded(false);
     const fetchConferenceData = async () => {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/guest/getConference")
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getConference")
         .then((res) => {
           if (res.data.latestConference === null) {
             alert("Currently no conference is scheduled");
@@ -47,7 +47,7 @@ const AttendeeProfile = () => {
         },
       };
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/attendeepvt/attendee", config)
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/attendeepvt/attendee", config)
         .then((res) => {
           setAttendeeData(res.data.attendee);
           setDataLoaded(true);
@@ -69,7 +69,7 @@ const AttendeeProfile = () => {
     const postObj = { username, email };
     await axios
       .put(
-        "https://af-test-grid.herokuapp.com/grid/api/attendeepvt/attendee/update",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/attendeepvt/attendee/update",
         postObj,
         config
       )
@@ -95,7 +95,7 @@ const AttendeeProfile = () => {
 
     await axios
       .delete(
-        "https://af-test-grid.herokuapp.com/grid/api/attendeepvt/attendee/delete",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/attendeepvt/attendee/delete",
         config
       )
       .then((res) => {

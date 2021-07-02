@@ -13,8 +13,9 @@ const Research = (props) => {
     useEffect(() =>{
         const getResarchPapers = async() =>{
             try{
+            
                 await axios
-                 .get("https://af-test-grid.herokuapp.com/grid/api/researcherpvt/researchPapers")
+                 .get("https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/researchPapers")
                  .then((res) =>{
                     setResPaper(res.data.resPaper);
                      console.log(res.data.resPaper)

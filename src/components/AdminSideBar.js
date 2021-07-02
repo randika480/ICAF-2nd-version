@@ -9,7 +9,7 @@ const AdminSideBar = () => {
   const [visible, setVisible] = React.useState(false);
   const [visible2, setVisible2] = React.useState(false);
   const [visible3, setVisible3] = React.useState(false);
-  const [visible4, setVisibles] = React.useState(false);
+  const [visible4, setVisible4] = React.useState(false);
   const [sideBar, setSideBar] = useState(true);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
   const [modalText, setModalText] = React.useState("");
@@ -41,7 +41,7 @@ const AdminSideBar = () => {
   };
 
   const showModal4 = () => {
-    setVisible3(true);
+    setVisible4(true);
   };
 
   const handleOk = () => {
@@ -74,7 +74,7 @@ const AdminSideBar = () => {
     setModalText("The modal will be closed after two seconds");
     setConfirmLoading(true);
     setTimeout(() => {
-      setVisible3(false);
+      setVisible4(false);
       setConfirmLoading(false);
     });
   };
@@ -95,7 +95,7 @@ const AdminSideBar = () => {
 
   const handleCancel4 = () => {
     console.log("Clicked cancel button");
-    setVisible3(false);
+    setVisible4(false);
   };
 
   const approveHomeN = async (id, status) => {
@@ -113,7 +113,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageHomeContent",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/manageHomeContent",
           dataObject,
           config
         )
@@ -141,7 +141,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageUserGuidContent",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/manageUserGuidContent",
           dataObject,
           config
         )
@@ -169,7 +169,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageGalleryContent",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/manageGalleryContent",
           dataObject,
           config
         )
@@ -196,7 +196,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageNewsTimelines",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/manageNewsTimelines",
           dataObject,
           config
         )
@@ -216,7 +216,7 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getHomeContent", config)
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getHomeContent", config)
         .then((res) => {
           for (var i = 0; i < res.data.homenotices.length; i++) {
             if (res.data.homenotices[i].status === "pending") {
@@ -243,7 +243,7 @@ const AdminSideBar = () => {
     try {
       await axios
         .get(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/getUserGuideContent",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getUserGuideContent",
           config
         )
         .then((res) => {
@@ -270,7 +270,7 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getGalleryImages", config)
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getGalleryImages", config)
         .then((res) => {
           for (var i = 0; i < res.data.gallery.length; i++) {
             if (res.data.gallery[i].status === "pending") {
@@ -296,7 +296,7 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/adminpvt/getNewsTimelines", config)
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getNewsTimelines", config)
         .then((res) => {
           for (var i = 0; i < res.data.newsTimelineData.length; i++) {
             if (res.data.newsTimelineData[i].status === "pending") {
@@ -574,10 +574,10 @@ const AdminSideBar = () => {
 
           <Modal
             title="Title"
-            visible={visible3}
-            onOk={handleOk3}
+            visible={visible4}
+            onOk={handleOk4}
             confirmLoading={confirmLoading}
-            onCancel={handleCancel3}
+            onCancel={handleCancel4}
           >
             <p>
               {galleryImg

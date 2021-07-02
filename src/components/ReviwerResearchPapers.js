@@ -24,7 +24,7 @@ const ReviwerResearchPapers = (props) => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/reviewerpvt/approveResearchPapers",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/reviewerpvt/approveResearchPapers",
           dataObject,
           config
         )

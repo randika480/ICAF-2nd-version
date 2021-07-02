@@ -14,6 +14,7 @@ import Resource from "./screens/Resource";
 import Workshop from "./screens/Workshop";
 
 import WorkshopCondctorProfile from "./screens/WorkshopConductorProfile";
+import Research from './screens/Research';
 
 import EditorDashboard from "./screens/EditorDashboard";
 import AttendeeProfile from "./screens/AttendeeScreen";
@@ -74,6 +75,10 @@ const App = () => {
 
         <Switch>
           <Route exact path="/profile/attendee" component={AttendeeProfile} />
+        </Switch>
+
+        <Switch>
+        <Route exact path="/research/:id" component={Research} /> 
         </Switch>
       </main>
       <Footer />

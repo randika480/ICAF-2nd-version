@@ -23,7 +23,7 @@ const Resource = () =>{
         const getWorkshopProposals = async() =>{
             try{
                 await axios
-                  .get("https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposals")
+                  .get("https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposals")
                   .then((res) =>{
                       setWorkshopProposal(res.data.workshopProposal);
                       console.log(res.data.workshopProposal );
@@ -43,7 +43,7 @@ const Resource = () =>{
         const getResarchPapers = async() =>{
             try{
                 await axios
-                 .get("https://af-test-grid.herokuapp.com/grid/api/researcherpvt/researchPapers")
+                 .get("https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/researchPapers")
                  .then((res) =>{
                     setResPaper(res.data.resPaper);
                      console.log(res.data.resPaper)

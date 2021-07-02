@@ -69,7 +69,7 @@ const Editreseaechppr = (props) => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/removeresearchdata",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/removeresearchdata",
           data,
           config
           
@@ -105,7 +105,7 @@ const Editreseaechppr = (props) => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/updateresearchdata",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/updateresearchdata",
           dataObject,
           config
         )

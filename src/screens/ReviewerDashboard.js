@@ -38,7 +38,7 @@ const ReviewerDashBoard = () => {
   const getConference = async () => {
     try {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/guest/getConference")
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getConference")
         .then((res) => {
           setConference(res.data.latestConference);
         })
@@ -73,7 +73,7 @@ const ReviewerDashBoard = () => {
     };
     try {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/reviewerpvt/getReviewer", config)
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/reviewerpvt/getReviewer", config)
         .then((res) => {
           setProfile(res.data.reviewer);
         })
@@ -94,7 +94,7 @@ const ReviewerDashBoard = () => {
     try {
       await axios
         .get(
-          "https://af-test-grid.herokuapp.com/grid/api/reviewerpvt/getNotifications",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/reviewerpvt/getNotifications",
           config
         )
         .then((res) => {
@@ -124,7 +124,7 @@ const ReviewerDashBoard = () => {
     try {
       await axios
         .get(
-          "https://af-test-grid.herokuapp.com/grid/api/reviewerpvt/getResearchPapers",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/reviewerpvt/getResearchPapers",
           config
         )
         .then((res) => {
@@ -162,7 +162,7 @@ const ReviewerDashBoard = () => {
     try {
       await axios
         .get(
-          "https://af-test-grid.herokuapp.com/grid/api/reviewerpvt/getWorkshopProposals",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/reviewerpvt/getWorkshopProposals",
           config
         )
         .then((res) => {

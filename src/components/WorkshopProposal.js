@@ -56,7 +56,7 @@ const WorkshopProposal = () => {
     try{
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposal/add",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposal/add",
           newWProposal,
           config
         )
@@ -87,7 +87,7 @@ const WorkshopProposal = () => {
     try{
       await axios
          .put(
-           "https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposal/update",
+           "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposal/update",
            updateProposal,
            config
          )
@@ -114,7 +114,7 @@ const WorkshopProposal = () => {
       };
       await axios
           .get(
-            "https://af-test-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor",
+            "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor",
             config
           )
           .then((res) =>{
@@ -143,7 +143,7 @@ const WorkshopProposal = () => {
     try{
       await axios
          .put(
-           "https://af-test-grid.herokuapp.com/grid/api/workshopconductor/proposal/delete",
+           "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductor/proposal/delete",
            wproposal,
            config
          )

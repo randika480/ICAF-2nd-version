@@ -25,7 +25,7 @@ const Researcherprofile = () => {
       try {
         await axios
           .get(
-            "https://af-test-grid.herokuapp.com/grid/api/researcherpvt/getProfile",
+            "https://icaf-backend-grid.herokuapp.com/grid/api/researcherpvt/getProfile",
             config
           )
           

@@ -24,7 +24,7 @@ const EditorDataDisplayer = () => {
         },
       };
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/editorpvt/getProfile", config)
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/getProfile", config)
         .then((res) => {
           ctx.onProfileChange(res.data.editor);
         })
@@ -36,7 +36,7 @@ const EditorDataDisplayer = () => {
     fetchEditorData();
     const fetchConferenceData = async () => {
       await axios
-        .get("https://af-test-grid.herokuapp.com/grid/api/guest/getConference")
+        .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getConference")
         .then((res) => {
           if (res.data.latestConference === null) {
             setErrorConf("Currently no conference in admin approved status");

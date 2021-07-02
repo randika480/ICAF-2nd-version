@@ -25,7 +25,7 @@ const EditorDetailsUpdate = () => {
       let postObject = { email, username };
       await axios
         .patch(
-          "http://localhost:6500/grid/api/editorpvt/editProfile",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/editorpvt/editProfile",
           postObject,
           config
         )

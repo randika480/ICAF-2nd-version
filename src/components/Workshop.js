@@ -15,7 +15,7 @@ function Workshop({id}) {
         const getWorkshops = async (id) => {
             try{
                 await axios
-                .get(`https://af-test-grid.herokuapp.com/grid/api/guest/getWorkshop/${id}`)
+                .get(`https://icaf-backend-grid.herokuapp.com/grid/api/guest/getWorkshop/${id}`)
                 .then((res) =>{
                     setWorkshop(res.data.workshop.workshopData);
                     setConductName(res.data.workshop.username)

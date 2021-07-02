@@ -70,7 +70,7 @@ const AdminConfData = (props) => {
     try {
       await axios
         .put(
-          "https://af-test-grid.herokuapp.com/grid/api/adminpvt/manageConfContent",
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/manageConfContent",
           dataObject,
           config
         )

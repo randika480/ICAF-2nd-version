@@ -17,7 +17,7 @@ function Research({id}) {
         const getResarch = async (id) => {
             try{
                 await axios
-                .get(`https://af-test-grid.herokuapp.com/grid/api/guest/getResearch/${id}`)
+                .get(`https://icaf-backend-grid.herokuapp.com/grid/api/guest/getResearch/${id}`)
                 .then((res) =>{
                     setResearch(res.data.researchpaper.researchData);
                     setConductName(res.data.researchpaper.username)

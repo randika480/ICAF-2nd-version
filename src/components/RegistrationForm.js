@@ -88,7 +88,7 @@ const RegistrationForm = () => {
       fileEnc,
     };
     await axios
-      .post("https://af-test-grid.herokuapp.com/grid/api/auth/reg-researcher", postObject)
+      .post("https://icaf-backend-grid.herokuapp.com/grid/api/auth/reg-researcher", postObject)
       .then((res) => {
         setIsLoading(false);
         alert("Researcher registration Success");
@@ -114,7 +114,7 @@ const RegistrationForm = () => {
     };
     await axios
       .post(
-        "https://af-test-grid.herokuapp.com/grid/api/reg-workshopconductor",
+        "https://icaf-backend-grid.herokuapp.com/grid/api/auth/reg-workshopconductor",
         postObject
       )
       .then((res) => {
@@ -133,7 +133,7 @@ const RegistrationForm = () => {
   const getConferenceID = async () => {
     let conferenceID = 0;
     await axios
-      .get("https://af-test-grid.herokuapp.com/grid/api/guest/getConference")
+      .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getConference")
       .then((confRes) => {
         conferenceID = confRes.data.latestConference._id;
         registerAttendee(conferenceID);
@@ -154,7 +154,7 @@ const RegistrationForm = () => {
       ticketID: cID,
     };
     await axios
-      .post("https://af-test-grid.herokuapp.com/grid/api/auth/reg-attendee", postObject)
+      .post("https://icaf-backend-grid.herokuapp.com/grid/api/auth/reg-attendee", postObject)
       .then((res) => {
         setIsLoading(false);
         alert("Attendee registration Success");
