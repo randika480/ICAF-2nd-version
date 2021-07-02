@@ -143,7 +143,7 @@ const WorkshopProposal = () => {
     try{
       await axios
          .put(
-           "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductor/proposal/delete",
+           "https://icaf-backend-grid.herokuapp.com/grid/api/workshopconductorpvt/workshopconductor/proposal/delete",
            wproposal,
            config
          )

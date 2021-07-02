@@ -11,7 +11,6 @@
 
 .appr {
   width: 16vw;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   margin: auto;
   display: block;
   background-color: lightgray;
@@ -28,7 +27,6 @@
   width: 60vw;
   height: fit-content;
   margin-left: 5vw;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .reviewerDataIn {

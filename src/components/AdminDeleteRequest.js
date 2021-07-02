@@ -21,8 +21,8 @@ const AdminDeleteRequest = (props) => {
           `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteHomeContent/${nID}`,config
         )
         .then((res) => {
-          ignoreRequest(nID);
-          window.location.reload(false);
+          ignore(id);
+        
         });
     } catch (err) {
       alert("error" + err);
@@ -38,18 +38,18 @@ const AdminDeleteRequest = (props) => {
     };
     const nID = id;
     
-    try {
+   
       await axios
         .delete(
           `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteTimelines/${nID}`,config
         )
         .then((res) => {
-          ignoreRequest(nID);
-          window.location.reload(false);
-        });
-    } catch (err) {
-      alert("error" + err);
-    }
+          ignore(id);
+        
+        }).catch(error =>{
+          alert(error)
+        })
+  
   };
 
   const deleteUserGuide = async (id) => {
@@ -66,8 +66,8 @@ const AdminDeleteRequest = (props) => {
           `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteUserGuidContent/${nID}`,config
         )
         .then((res) => {
-          ignoreRequest(nID);
-          window.location.reload(false);
+          ignore(id);
+          
         });
     } catch (err) {
       alert("error" + err);
@@ -76,20 +76,23 @@ const AdminDeleteRequest = (props) => {
 
   const ignore = (id) => {
     for (let i = 0; i < props.delNotifications.length; i++) {
-      if (props.delNotifications[i].description.includes(id)) {
+      if (props.delNotifications[i].description.includes(id)) {        
         setIgnoreId(props.delNotifications[i]._id);
         ignoreRequest(props.delNotifications[i]._id);
+        
       }
     }
   };
 
-  const ignoreRequest = async (id) => {
+  const ignoreRequest = async (delId) => {
+    alert("delId"+delId)
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
       },
     };
-    const nID = id;
+    const nID = delId;
+    alert("delId"+nID)
     try {
       await axios
         .delete(

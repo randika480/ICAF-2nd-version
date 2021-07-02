@@ -1,14 +1,11 @@
 .galleryComp{
-  height: 45vw;
-  /* height: fit-content; */
-  
+  height: 45vw;  
 }
 
 .galleryImg {
   width: 15vw;
   height: 15vw;
   margin: 1vw;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   float: left;
   padding: 0;
 }

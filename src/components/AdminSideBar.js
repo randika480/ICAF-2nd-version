@@ -216,7 +216,10 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getHomeContent", config)
+        .get(
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getHomeContent",
+          config
+        )
         .then((res) => {
           for (var i = 0; i < res.data.homenotices.length; i++) {
             if (res.data.homenotices[i].status === "pending") {
@@ -270,7 +273,10 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getGalleryImages", config)
+        .get(
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getGalleryImages",
+          config
+        )
         .then((res) => {
           for (var i = 0; i < res.data.gallery.length; i++) {
             if (res.data.gallery[i].status === "pending") {
@@ -296,7 +302,10 @@ const AdminSideBar = () => {
     };
     try {
       await axios
-        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getNewsTimelines", config)
+        .get(
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getNewsTimelines",
+          config
+        )
         .then((res) => {
           for (var i = 0; i < res.data.newsTimelineData.length; i++) {
             if (res.data.newsTimelineData[i].status === "pending") {
@@ -371,7 +380,7 @@ const AdminSideBar = () => {
             <div className="sideBarCard">
               <Row onClick={showModal3}>
                 <Col span={18} xs={24} sm={24} md={24} lg={24} xl={18}>
-                Time Lines
+                  Time Lines
                 </Col>
                 <Col span={6} xs={24} sm={24} md={24} lg={24} xl={6}>
                   <Button
@@ -418,7 +427,7 @@ const AdminSideBar = () => {
               {homenotice
                 .filter((wrk) => wrk.status === "pending")
                 .map((homenotices, index) => (
-                  <div key={index}>
+                  <div key={index} className="sideBarItem">
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>
@@ -469,7 +478,7 @@ const AdminSideBar = () => {
               {userGuide
                 .filter((wrk) => wrk.status === "pending")
                 .map((userGuides, index) => (
-                  <div key={index}>
+                  <div key={index} className="sideBarItem">
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>
@@ -528,7 +537,7 @@ const AdminSideBar = () => {
               {timeline
                 .filter((wrk) => wrk.status === "pending")
                 .map((timeline, index) => (
-                  <div key={index}>
+                  <div key={index} className="sideBarItem">
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>
@@ -583,34 +592,36 @@ const AdminSideBar = () => {
               {galleryImg
                 .filter((wrk) => wrk.status === "pending")
                 .map((gallery, index) => (
-                  <div className="pendingGallery" key={index}>
-                    <div className="galleryImg" key={index}>
-                      <Image
-                        className="custom-cusprof-pp-img-adminglry "
-                        cloudName="grid1234"
-                        publicId={gallery.galleryImage.imagePublicId}
-                      />
-
-                      <div>
-                        <Button
-                          type="primary"
-                          danger
-                          onClick={() => {
-                            approveG(gallery._id, "approvedbyadmin");
-                          }}
-                        >
-                          Approve
-                        </Button>{" "}
-                        <Button
-                          type="primary"
-                          danger
-                          onClick={() => {
-                            approveG(gallery._id, "rejectedbyadmin");
-                          }}
-                        >
-                          Reject
-                        </Button>
-                        <Divider />
+                  <div className="sideBarItem" key={index}>
+                    <div className="pendingGallery" >
+                      <div className="galleryImg">
+                        <Image
+                          className="custom-cusprof-pp-img-adminglry "
+                          cloudName="grid1234"
+                          publicId={gallery.galleryImage.imagePublicId}
+                        />
+                      
+                        <div className="galleryButton">
+                          <Button
+                            type="primary"
+                            danger
+                            onClick={() => {
+                              approveG(gallery._id, "approvedbyadmin");
+                            }}
+                          >
+                            Approve
+                          </Button>{" "}
+                          <Button
+                            type="primary"
+                            danger
+                            onClick={() => {
+                              approveG(gallery._id, "rejectedbyadmin");
+                            }}
+                          >
+                            Reject
+                          </Button>
+                        
+                        </div>
                       </div>
                     </div>
                   </div>
