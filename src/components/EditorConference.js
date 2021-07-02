@@ -69,7 +69,7 @@ const EditorConference = (props) => {
     };
     await axios
       .patch(
-        "http://localhost:6500/grid/api/editorpvt/editConference",
+        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/editConference",
         postObject,
         config
       )
@@ -100,7 +100,7 @@ const EditorConference = (props) => {
 
     await axios
       .put(
-        "http://localhost:6500/grid/api/editorpvt/addSpeaker",
+        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addSpeaker",
         postObject,
         config
       )
@@ -132,7 +132,7 @@ const EditorConference = (props) => {
     if (type !== "" && speakerID !== "") {
       await axios
         .put(
-          "http://localhost:6500/grid/api/editorpvt/editSpeaker",
+          "https://af-test-grid.herokuapp.com/grid/api/editorpvt/editSpeaker",
           postObject,
           config
         )
@@ -161,7 +161,7 @@ const EditorConference = (props) => {
 
     await axios
       .put(
-        "http://localhost:6500/grid/api/editorpvt/addSpeaker",
+        "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addSpeaker",
         postObject,
         config
       )
@@ -298,250 +298,254 @@ const EditorConference = (props) => {
               </Form>
             </div>
           )}
-          {confSection === 2 && (
+          {ctx.confData._id && (
             <div>
-              <Form onSubmit={updateConferenceHandler}>
-                <Form.Row>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder={ctx.confData.title}
-                      value={title}
-                      onChange={(e) => {
-                        setTitle(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Time-period</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder={ctx.confData.period}
-                      value={period}
-                      onChange={(e) => {
-                        setPeriod(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Starting at</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder={ctx.confData.startingTime}
-                      value={startingTime}
-                      onChange={(e) => {
-                        setStartingTime(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder={ctx.confData.about}
-                      value={about}
-                      onChange={(e) => {
-                        setAbout(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                </Form.Row>
-                <Form.Row>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Venue</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder={ctx.confData.venue}
-                      value={venue}
-                      onChange={(e) => {
-                        setVenue(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                </Form.Row>
-                <Button variant="warning" type="submit">
-                  Update
-                </Button>
-              </Form>
-            </div>
-          )}
-          {confSection === 3 && (
-            <div>
-              <Form onSubmit={addSpeakerHandler}>
-                <Form.Row>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Speaker Name"
-                      value={name}
-                      onChange={(e) => {
-                        setName(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Speaker's Position</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Associated Uni./Cop."
-                      value={associatewith}
-                      onChange={(e) => {
-                        setAssociatewith(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Cover letter</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Cover letter"
-                      value={coverletter}
-                      onChange={(e) => {
-                        setCoverletter(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Conference ID</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={ctx.confData._id}
-                      disabled
-                    />
-                  </Form.Group>
-                </Form.Row>
-                <Form.Row>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Speaker Type</Form.Label>
-                    <Form.Check
-                      type="radio"
-                      required={true}
-                      label="Keynote Speaker"
-                      onClick={() => {
-                        setType("keynotespeaker");
-                      }}
-                      id="formHorizontalRadios1"
-                      name="formHorizontalRadios"
-                    />
-                    <Form.Check
-                      type="radio"
-                      required={true}
-                      label="Guest Speaker"
-                      onClick={() => {
-                        setType("guestspeakers");
-                      }}
-                      id="formHorizontalRadios2"
-                      name="formHorizontalRadios"
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Image:&nbsp;</Form.Label>
-                    <div>
-                      <FileBase
-                        type="file"
-                        multiple={false}
-                        onDone={({ base64 }) => {
-                          setPpEnc(base64);
-                        }}
-                      />
-                    </div>
-                  </Form.Group>
-                </Form.Row>
-                <Button variant="warning" type="submit">
-                  Add
-                </Button>
-              </Form>
-            </div>
-          )}
-          {confSection === 4 && (
-            <div>
-              <Form onSubmit={updateSpeakerHandler}>
-                <h5>Keynote Speakers</h5>
-                <Form.Group as={Col} md={24}>
-                  {ctx.confData.keynoteSpeakers.map((speaker) => {
-                    return (
-                      <Form.Check
-                        key={speaker._id}
-                        type="radio"
-                        required={true}
-                        label={`${speaker.name} - ${speaker._id}`}
-                        onClick={() => {
-                          setType("keynotespeaker");
-                          setSpeakerID(speaker._id);
-                        }}
-                        name="formHorizontalRadios"
-                      />
-                    );
-                  })}
-                </Form.Group>
-                <h5>Guest Speakers</h5>
-                <Form.Group as={Col} md={24}>
-                  {ctx.confData.guestSpeakers.map((speaker) => {
-                    return (
-                      <Form.Check
-                        key={speaker._id}
-                        type="radio"
-                        required={true}
-                        label={`${speaker.name} - ${speaker._id}`}
-                        onClick={() => {
-                          setType("guestspeakers");
-                          setSpeakerID(speaker._id);
-                        }}
-                        name="formHorizontalRadios"
-                      />
-                    );
-                  })}
-                </Form.Group>
-                <Form.Row>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Speaker Name"
-                      value={name}
-                      onChange={(e) => {
-                        setName(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Speaker's Position</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Associated Uni./Cop."
-                      value={associatewith}
-                      onChange={(e) => {
-                        setAssociatewith(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Cover letter</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Cover letter"
-                      value={coverletter}
-                      onChange={(e) => {
-                        setCoverletter(e.target.value);
-                      }}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} md={12}>
-                    <Form.Label>Conference ID</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={ctx.confData._id}
-                      disabled
-                    />
-                  </Form.Group>
-                </Form.Row>
+              {confSection === 2 && (
+                <div>
+                  <Form onSubmit={updateConferenceHandler}>
+                    <Form.Row>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder={ctx.confData.title}
+                          value={title}
+                          onChange={(e) => {
+                            setTitle(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Time-period</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder={ctx.confData.period}
+                          value={period}
+                          onChange={(e) => {
+                            setPeriod(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Starting at</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder={ctx.confData.startingTime}
+                          value={startingTime}
+                          onChange={(e) => {
+                            setStartingTime(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder={ctx.confData.about}
+                          value={about}
+                          onChange={(e) => {
+                            setAbout(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Venue</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder={ctx.confData.venue}
+                          value={venue}
+                          onChange={(e) => {
+                            setVenue(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                    </Form.Row>
+                    <Button variant="warning" type="submit">
+                      Update
+                    </Button>
+                  </Form>
+                </div>
+              )}
+              {confSection === 3 && (
+                <div>
+                  <Form onSubmit={addSpeakerHandler}>
+                    <Form.Row>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Speaker Name"
+                          value={name}
+                          onChange={(e) => {
+                            setName(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Speaker's Position</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Associated Uni./Cop."
+                          value={associatewith}
+                          onChange={(e) => {
+                            setAssociatewith(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Cover letter</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Cover letter"
+                          value={coverletter}
+                          onChange={(e) => {
+                            setCoverletter(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Conference ID</Form.Label>
+                        <Form.Control
+                          type="text"
+                          value={ctx.confData._id}
+                          disabled
+                        />
+                      </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Speaker Type</Form.Label>
+                        <Form.Check
+                          type="radio"
+                          required={true}
+                          label="Keynote Speaker"
+                          onClick={() => {
+                            setType("keynotespeaker");
+                          }}
+                          id="formHorizontalRadios1"
+                          name="formHorizontalRadios"
+                        />
+                        <Form.Check
+                          type="radio"
+                          required={true}
+                          label="Guest Speaker"
+                          onClick={() => {
+                            setType("guestspeakers");
+                          }}
+                          id="formHorizontalRadios2"
+                          name="formHorizontalRadios"
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Image:&nbsp;</Form.Label>
+                        <div>
+                          <FileBase
+                            type="file"
+                            multiple={false}
+                            onDone={({ base64 }) => {
+                              setPpEnc(base64);
+                            }}
+                          />
+                        </div>
+                      </Form.Group>
+                    </Form.Row>
+                    <Button variant="warning" type="submit">
+                      Add
+                    </Button>
+                  </Form>
+                </div>
+              )}
+              {confSection === 4 && (
+                <div>
+                  <Form onSubmit={updateSpeakerHandler}>
+                    <h5>Keynote Speakers</h5>
+                    <Form.Group as={Col} md={24}>
+                      {ctx.confData.keynoteSpeakers.map((speaker) => {
+                        return (
+                          <Form.Check
+                            key={speaker._id}
+                            type="radio"
+                            required={true}
+                            label={`${speaker.name} - ${speaker._id}`}
+                            onClick={() => {
+                              setType("keynotespeaker");
+                              setSpeakerID(speaker._id);
+                            }}
+                            name="formHorizontalRadios"
+                          />
+                        );
+                      })}
+                    </Form.Group>
+                    <h5>Guest Speakers</h5>
+                    <Form.Group as={Col} md={24}>
+                      {ctx.confData.guestSpeakers.map((speaker) => {
+                        return (
+                          <Form.Check
+                            key={speaker._id}
+                            type="radio"
+                            required={true}
+                            label={`${speaker.name} - ${speaker._id}`}
+                            onClick={() => {
+                              setType("guestspeakers");
+                              setSpeakerID(speaker._id);
+                            }}
+                            name="formHorizontalRadios"
+                          />
+                        );
+                      })}
+                    </Form.Group>
+                    <Form.Row>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Speaker Name"
+                          value={name}
+                          onChange={(e) => {
+                            setName(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Speaker's Position</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Associated Uni./Cop."
+                          value={associatewith}
+                          onChange={(e) => {
+                            setAssociatewith(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Cover letter</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Cover letter"
+                          value={coverletter}
+                          onChange={(e) => {
+                            setCoverletter(e.target.value);
+                          }}
+                        />
+                      </Form.Group>
+                      <Form.Group as={Col} md={12}>
+                        <Form.Label>Conference ID</Form.Label>
+                        <Form.Control
+                          type="text"
+                          value={ctx.confData._id}
+                          disabled
+                        />
+                      </Form.Group>
+                    </Form.Row>
 
-                <Button variant="warning" type="submit">
-                  Update
-                </Button>
-              </Form>
+                    <Button variant="warning" type="submit">
+                      Update
+                    </Button>
+                  </Form>
+                </div>
+              )}
             </div>
           )}
         </Row>

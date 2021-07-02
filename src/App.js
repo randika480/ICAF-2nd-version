@@ -16,6 +16,7 @@ import Workshop from "./screens/Workshop";
 import WorkshopCondctorProfile from "./screens/WorkshopConductorProfile";
 
 import EditorDashboard from "./screens/EditorDashboard";
+import AttendeeProfile from "./screens/AttendeeScreen";
 
 import AdminDashboard from "./screens/AdminDashboard";
 import ReviewerDashboard from "./screens/ReviewerDashboard";
@@ -48,7 +49,7 @@ const App = () => {
         <Switch>
           <Route exact path="/workshop/:id" component={Workshop} />
         </Switch>
- 
+
         <Switch>
           <Route
             exact
@@ -70,9 +71,10 @@ const App = () => {
         <Switch>
           <Route exact path="/conference" component={conferencecover} />
         </Switch>
-       
 
-
+        <Switch>
+          <Route exact path="/profile/attendee" component={AttendeeProfile} />
+        </Switch>
       </main>
       <Footer />
     </BRouter>

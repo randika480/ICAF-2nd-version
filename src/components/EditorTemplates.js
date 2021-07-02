@@ -8,11 +8,41 @@ const EditorTemplates = () => {
   const [fileType, setFileType] = useState("");
   const [file, setFile] = useState("");
   const templateHandler = async () => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    };
+    let postObj;
     if (fileType === "pdf") {
-      const postObj = { encPDF: file };
+      postObj = { encPDF: file };
+      await axios
+        .put(
+          "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addResearchTemplate",
+          postObj,
+          config
+        )
+        .then((res) => {
+          alert("PDF template uploaded!");
+        })
+        .catch((err) => {
+          alert("ERROR! " + err);
+        });
     }
     if (fileType === "ppt") {
-      const postObj = { encPPT: file };
+      postObj = { encPPT: file };
+      await axios
+        .put(
+          "https://af-test-grid.herokuapp.com/grid/api/editorpvt/addWorkshopTemplate",
+          postObj,
+          config
+        )
+        .then((res) => {
+          alert("PPTX template uploaded!");
+        })
+        .catch((err) => {
+          alert("ERROR! " + err);
+        });
     }
   };
 

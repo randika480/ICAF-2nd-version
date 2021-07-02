@@ -10,7 +10,6 @@ import EditorTemplates from "./EditorTemplates";
 import EditorTimeline from "./EditorTimeline";
 import EditorHomeNotices from "./EditorHomeNotices";
 import EditorGallery from "./EditorGallery";
-import EditorUserGuide from "./EditorUserGuide";
 
 const EditorDataDisplayer = () => {
   const ctx = useContext(EditorContext);
@@ -25,7 +24,7 @@ const EditorDataDisplayer = () => {
         },
       };
       await axios
-        .get("http://localhost:6500/grid/api/editorpvt/getProfile", config)
+        .get("https://af-test-grid.herokuapp.com/grid/api/editorpvt/getProfile", config)
         .then((res) => {
           ctx.onProfileChange(res.data.editor);
         })
@@ -37,12 +36,16 @@ const EditorDataDisplayer = () => {
     fetchEditorData();
     const fetchConferenceData = async () => {
       await axios
-        .get("http://localhost:6500/grid/api/guest/getConference")
+        .get("https://af-test-grid.herokuapp.com/grid/api/guest/getConference")
         .then((res) => {
-          ctx.onConfChange(res.data.latestConference);
-          setErrorConf(
-            `Currently ${res.data.latestConference.title} is on focus!`
-          );
+          if (res.data.latestConference === null) {
+            setErrorConf("Currently no conference in admin approved status");
+          } else {
+            ctx.onConfChange(res.data.latestConference);
+            setErrorConf(
+              `Currently ${res.data.latestConference.title} is on focus!`
+            );
+          }
         })
         .catch((err) => {
           alert("Error!" + err);
@@ -61,8 +64,11 @@ const EditorDataDisplayer = () => {
       {ctx.optionID === "Upload Templates" && <EditorTemplates />}
       {ctx.optionID === "Timeline" && <EditorTimeline />}
       {ctx.optionID === "Home Notices" && <EditorHomeNotices />}
-      {ctx.optionID === "Gallery" && <EditorGallery />}
-      {ctx.optionID === "User Guide" && <EditorUserGuide />}
+      {ctx.optionID === "Gallery & User Guide" && (
+        <div>
+          <EditorGallery />
+        </div>
+      )}
     </div>
   );
 };
