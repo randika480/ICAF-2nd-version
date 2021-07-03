@@ -9,6 +9,7 @@ import AdministrationLogin from "./screens/AdministrationLoginScreen";
 
 import ResearcherProfile from "./screens/ResearcherProfile";
 import conferencecover from "./screens/ConferenceCover";
+import userGuide from "./screens/Userguide.js";
 
 import Resource from "./screens/Resource";
 import Workshop from "./screens/Workshop";
@@ -85,6 +86,10 @@ const App = () => {
 
         <Switch>
         <Route exact path="/templates" component={Templates} /> 
+        </Switch>
+
+        <Switch>
+        <Route exact path="/userguide" component={userGuide} /> 
         </Switch>
 
 
