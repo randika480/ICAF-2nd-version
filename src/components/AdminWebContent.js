@@ -30,7 +30,6 @@ const AdminWebContent = () => {
       },
     };
     const nID = id;
-    alert(nID);
     try {
       await axios
         .delete(
