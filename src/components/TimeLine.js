@@ -10,7 +10,9 @@ const TimeLine = () => {
     const getTimeLine = async () => {
       try {
         await axios
-          .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getTimeline")
+          .get(
+            "https://icaf-backend-grid.herokuapp.com/grid/api/guest/getTimeline"
+          )
           .then((res) => {
             settimeline(res.data.timelines);
           })
@@ -24,9 +26,9 @@ const TimeLine = () => {
     getTimeLine();
   }, []);
   return (
-    <div>
+    <div style={{ paddingTop: "5vh" }}>
       <h1>Timeline</h1>
-      <Divider/>
+      <Divider />
       <div className="timeline-container">
         {timeline
           .filter((wrk) => wrk.status === "approvedbyadmin")

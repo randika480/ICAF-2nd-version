@@ -12,7 +12,9 @@ const HomeConfData = () => {
     const getConference = async () => {
       try {
         await axios
-          .get("https://icaf-backend-grid.herokuapp.com/grid/api/guest/getConference")
+          .get(
+            "https://icaf-backend-grid.herokuapp.com/grid/api/guest/getConference"
+          )
           .then((res) => {
             setConference(res.data.latestConference);
           })
@@ -28,14 +30,17 @@ const HomeConfData = () => {
   return (
     <div className="homeconf">
       {conference && (
-        <div className="homeConference" style={{fontSize:"1.1rem"}}>
-          <h1 style={{color:"white"}}>{conference.title}</h1>
+        <div
+          className="homeConference"
+          style={{ fontSize: "1.1rem", paddingTop: "5vh" }}
+        >
+          <h1 style={{ color: "white" }}>{conference.title}</h1>
           <p>{conference.about}</p>
           <p>{conference.period}</p>
           <p>{conference.startingTime}</p>
           <p>At {conference.venue} Premises</p>
 
-          <div className="confrenceWrapper">
+          <div style={{ paddingTop: "5vh" }} className="confrenceWrapper">
             <h4>Keynote Speakers</h4>
             <div className="speakers">
               {conference.keynoteSpeakers.map((keynoteSpeaker, index) => (
@@ -85,7 +90,9 @@ const HomeConfData = () => {
           </div>
           <div>
             <CountDown conference={conference} />
-            <Button variant="dark" href="/conference">Learn More</Button>
+            <Button variant="dark" href="/conference">
+              Learn More
+            </Button>
           </div>
         </div>
       )}

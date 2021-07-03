@@ -232,7 +232,7 @@ const WorkshopProposal = () => {
           </Form>
           </Modal>
           <Modal
-          title="Add Product"
+          title="Add Workshop Proposal"
           visible={addvisible}
           onOk={handleOk2}
           confirmLoading={confirmLoading}

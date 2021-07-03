@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -36,14 +37,26 @@ const Footer = () => {
         </Col>
         <Col span={6} style={{ paddingLeft: "10vw" }}>
           <div>
-            <h4 style={{ color: "white  " }}>Site-map</h4>
+            <h4 style={{ color: "white", paddingLeft: "3vh" }}>Site-map</h4>
           </div>
           <div>
-            <ul>
-              <li>Conference</li>
-              <li>Resources</li>
-              <li>Support</li>
-              <li>lorem</li>
+            <ul style={{ listStyle: "none", textAlign: "start" }}>
+              <li>
+                {" "}
+                <Link to="/conference">Conference</Link>
+              </li>
+              <li>
+                {" "}
+                <Link to="/resources">Resources</Link>
+              </li>
+              <li>
+                {" "}
+                <Link to="/templates">Templates</Link>
+              </li>
+              <li>
+                {" "}
+                <Link to="#support">Support</Link>
+              </li>
             </ul>
           </div>
         </Col>

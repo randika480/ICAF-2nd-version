@@ -60,7 +60,7 @@ const WorkshopNotification = () => {
                 <div key={index}>
                 <ListGroup variant="flush">
                 <ListGroup.Item>
-                <h3>Subject: {notification.Subject}</h3>
+                <h3>Subject: {notification.subject}</h3>
                 <p>
                     <small>from : {notification.from.userRole}</small>
                 </p>
