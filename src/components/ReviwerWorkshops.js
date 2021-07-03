@@ -3,7 +3,6 @@ import axios from "axios";
 import { Button, Divider, Row, Col } from "antd";
 import { Table } from "react-bootstrap";
 
-
 const ReviwerWorkshops = (props) => {
   const [pendingDiv, setPendingDiv] = useState(true);
   const [approvedDiv, setApprovedDiv] = useState(false);
@@ -21,10 +20,11 @@ const ReviwerWorkshops = (props) => {
       newStatus: st,
       fileID: nid,
       userid: uId,
-    }
+    };
     try {
       await axios
-        .put("https://icaf-backend-grid.herokuapp.com/grid/api/reviewerpvt/approveWorkshops", 
+        .put(
+          "http://localhost:6500/grid/api/reviewerpvt/approveWorkshops",
           dataObject,
           config
         )
@@ -57,84 +57,86 @@ const ReviwerWorkshops = (props) => {
       </Button>{" "}
       {pendingDiv && (
         <div>
-          {props.workshopData
-          
-          .map((Workshop, index) => (
+          {props.workshopData.map((Workshop, index) => (
             <div key={index}>
-               <h4>Workshop Conductor </h4>
-              <p>Workshop Conducror ID : {Workshop._id}</p>
-              <p>Username : {Workshop.username}</p>
-
               {Workshop.workshopData
                 .filter((wrk) => wrk.status === "pending")
                 .map((WorkshopData, index) => (
-                  
                   <div key={index}>
-                   
-                     <Table striped bordered hover variant="dark">
-                    <tbody>
-                      <tr>
-                        <td>Workshop ID</td>
-                        <td>{WorkshopData._id}</td>
-                      </tr>
-                      <tr>
-                        <td>Workshop Status</td>
-                        <td>
-                          {" "}
-                          {WorkshopData.status === "approvedbyreviewer" &&
-                            "Approved"}
-                          {WorkshopData.status === "pending" && "Pending"}
-                          {WorkshopData.status === "rejectedbyreviewer" && "Rejected"}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Topic</td>
-                        <td>{WorkshopData.workshopTopic}</td>
-                      </tr>
-                      <tr>
-                        <td>Description</td>
-                        <td>{WorkshopData.workshopDescription}</td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                  <Row>
-  <Col span={8}>
- 
-
-                   
-                    <Button
-                      type="primary"
-                      danger
-                      href={WorkshopData.proposalSecURL}
-                    >
-                      Download Workshop Proposal
-                    </Button>{" "}
-                    </Col>
-                    <Col span={10}>
-                    {props.conference && (<div>
-                    <Button
-                      type="primary"
-                      onClick={() => {
-                        approve(WorkshopData._id, "approvedbyreviewer", Workshop._id);
-                      }}
-                    >
-                      Approve
-                    </Button>{" "}
-                    <Button
-                      type="primary"
-                      danger
-                      onClick={() => {
-                        approve(WorkshopData._id, "rejectedbyreviewer", Workshop._id);
-                      }}
-                    >
-                      Reject
-                    </Button>{" "} </div>
-                    )}
-</Col>
-</Row>
+                    <h4>Workshop Conductor </h4>
+                    <p>Workshop Conducror ID : {Workshop._id}</p>
+                    <p>Username : {Workshop.username}</p>
+                    <Table striped bordered hover variant="dark">
+                      <tbody>
+                        <tr>
+                          <td>Workshop ID</td>
+                          <td>{WorkshopData._id}</td>
+                        </tr>
+                        <tr>
+                          <td>Workshop Status</td>
+                          <td>
+                            {" "}
+                            {WorkshopData.status === "approvedbyreviewer" &&
+                              "Approved"}
+                            {WorkshopData.status === "pending" && "Pending"}
+                            {WorkshopData.status === "rejectedbyreviewer" &&
+                              "Rejected"}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Topic</td>
+                          <td>{WorkshopData.workshopTopic}</td>
+                        </tr>
+                        <tr>
+                          <td>Description</td>
+                          <td>{WorkshopData.workshopDescription}</td>
+                        </tr>
+                      </tbody>
+                    </Table>
+                    <Row>
+                      <Col span={8}>
+                        <Button
+                          type="primary"
+                          danger
+                          href={WorkshopData.proposalSecURL}
+                        >
+                          Download Workshop Proposal
+                        </Button>{" "}
+                      </Col>
+                      <Col span={10}>
+                        {props.conference && (
+                          <div>
+                            <Button
+                              type="primary"
+                              onClick={() => {
+                                approve(
+                                  WorkshopData._id,
+                                  "approvedbyreviewer",
+                                  Workshop._id
+                                );
+                              }}
+                            >
+                              Approve
+                            </Button>{" "}
+                            <Button
+                              type="primary"
+                              danger
+                              onClick={() => {
+                                approve(
+                                  WorkshopData._id,
+                                  "rejectedbyreviewer",
+                                  Workshop._id
+                                );
+                              }}
+                            >
+                              Reject
+                            </Button>{" "}
+                          </div>
+                        )}
+                      </Col>
+                    </Row>
                     {!props.conference && (
                       <div style={{ backgroundColor: "red" }}>
-                        
                         <h4 style={{ color: "white" }}>
                           You can not approve this now because conference
                           currently not awailable
@@ -152,86 +154,93 @@ const ReviwerWorkshops = (props) => {
       )}
       {approvedDiv && (
         <div>
-          {props.workshopData
-          .map((Workshop, index) => (
+          {props.workshopData.map((Workshop, index) => (
             <div key={index}>
-               <h4>Workshop Conductor </h4>
-              <p>Workshop Conductor ID : {Workshop._id}</p>
-              <p>Username : {Workshop.username}</p>
-
               {Workshop.workshopData
                 .filter((wrk) => wrk.status !== "pending")
                 .map((WorkshopData, index) => (
                   <div key={index}>
-                           <Table striped bordered hover variant="dark">
-                    <tbody>
-                      <tr>
-                        <td>Workshop ID</td>
-                        <td>{WorkshopData._id}</td>
-                      </tr>
-                      <tr>
-                        <td>Workshop Status</td>
-                        <td>
-                          {" "}
-                          {WorkshopData.status === "approvedbyreviewer" &&
-                            "Approved"}
-                          {WorkshopData.status === "pending" && "Pending"}
-                          {WorkshopData.status === "rejectedbyreviewer" && "Rejected"}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Topic</td>
-                        <td>{WorkshopData.workshopTopic}</td>
-                      </tr>
-                      <tr>
-                        <td>Description</td>
-                        <td>{WorkshopData.workshopDescription}</td>
-                      </tr>
-                    </tbody>
-                  </Table>
+                    <h4>Workshop Conductor </h4>
+                    <p>Workshop Conductor ID : {Workshop._id}</p>
+                    <p>Username : {Workshop.username}</p>
+                    <Table striped bordered hover variant="dark">
+                      <tbody>
+                        <tr>
+                          <td>Workshop ID</td>
+                          <td>{WorkshopData._id}</td>
+                        </tr>
+                        <tr>
+                          <td>Workshop Status</td>
+                          <td>
+                            {" "}
+                            {WorkshopData.status === "approvedbyreviewer" &&
+                              "Approved"}
+                            {WorkshopData.status === "pending" && "Pending"}
+                            {WorkshopData.status === "rejectedbyreviewer" &&
+                              "Rejected"}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Topic</td>
+                          <td>{WorkshopData.workshopTopic}</td>
+                        </tr>
+                        <tr>
+                          <td>Description</td>
+                          <td>{WorkshopData.workshopDescription}</td>
+                        </tr>
+                      </tbody>
+                    </Table>
 
-
-                  <Row>
-  <Col span={8}>
-  
-
-                    <Button
-                      type="primary"
-                      danger
-                      href={WorkshopData.proposalSecURL}
-                    >
-                      Download Workshop Proposal
-                    </Button>{" "}
-                    </Col>
-                    <Col span={10}>
-
-                    {props.conference && (<div>
-                    {WorkshopData.status === "rejectedbyreviewer" && (
-                      <Button
-                        type="primary"
-                        onClick={() => {
-                          approve(WorkshopData._id, "approvedbyreviewer", Workshop._id);
-                        }}
-                      >
-                        Approve
-                      </Button>
-                    )}{" "}
-                    {WorkshopData.status === "approvedbyreviewer" && (
-                      <Button
-                        type="primary"
-                        danger
-                        onClick={() => {
-                          approve(WorkshopData._id, "rejectedbyreviewer", Workshop._id);
-                        }}
-                      >
-                        Reject
-                      </Button>
-                    )}{" "} </div>)}
-                    </Col></Row>
+                    <Row>
+                      <Col span={8}>
+                        <Button
+                          type="primary"
+                          danger
+                          href={WorkshopData.proposalSecURL}
+                        >
+                          Download Workshop Proposal
+                        </Button>{" "}
+                      </Col>
+                      <Col span={10}>
+                        {props.conference && (
+                          <div>
+                            {WorkshopData.status === "rejectedbyreviewer" && (
+                              <Button
+                                type="primary"
+                                onClick={() => {
+                                  approve(
+                                    WorkshopData._id,
+                                    "approvedbyreviewer",
+                                    Workshop._id
+                                  );
+                                }}
+                              >
+                                Approve
+                              </Button>
+                            )}{" "}
+                            {WorkshopData.status === "approvedbyreviewer" && (
+                              <Button
+                                type="primary"
+                                danger
+                                onClick={() => {
+                                  approve(
+                                    WorkshopData._id,
+                                    "rejectedbyreviewer",
+                                    Workshop._id
+                                  );
+                                }}
+                              >
+                                Reject
+                              </Button>
+                            )}{" "}
+                          </div>
+                        )}
+                      </Col>
+                    </Row>
                     <Divider />
                   </div>
                 ))}
-                
+
               <Divider />
             </div>
           ))}

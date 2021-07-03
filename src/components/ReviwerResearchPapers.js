@@ -24,7 +24,7 @@ const ReviwerResearchPapers = (props) => {
     try {
       await axios
         .put(
-          "https://icaf-backend-grid.herokuapp.com/grid/api/reviewerpvt/approveResearchPapers",
+          "http://localhost:6500/grid/api/reviewerpvt/approveResearchPapers",
           dataObject,
           config
         )
@@ -59,14 +59,13 @@ const ReviwerResearchPapers = (props) => {
         <div>
           {props.rPaperData.map((rPaper, index) => (
             <div key={index}>
-              <h4>Researcher </h4>
-              <p>Researcher ID : {rPaper._id}</p>
-              <p>Username : {rPaper.username}</p>
-
               {rPaper.researchData
                 .filter((wrk) => wrk.status === "pending")
                 .map((rPaperData, index) => (
                   <div key={index}>
+                    <h4>Researcher </h4>
+                    <p>Researcher ID : {rPaper._id}</p>
+                    <p>Username : {rPaper.username}</p>
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>
@@ -165,14 +164,13 @@ const ReviwerResearchPapers = (props) => {
         <div>
           {props.rPaperData.map((rPaper, index) => (
             <div key={index} key={index}>
-              <h4>Researcher </h4>
-              <p>Researcher ID : {rPaper._id}</p>
-              <p>Username : {rPaper.username}</p>
-
               {rPaper.researchData
                 .filter((wrk) => wrk.status !== "pending")
                 .map((rPaperData, index) => (
-                  <div>
+                  <div key={index}>
+                    <h4>Researcher </h4>
+                    <p>Researcher ID : {rPaper._id}</p>
+                    <p>Username : {rPaper.username}</p>
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>
