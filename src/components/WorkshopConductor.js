@@ -83,7 +83,7 @@ const WorkshopConductor = (props) => {
                     config
                 )
                 .then((res) =>{
-                    alert("Customer Update Successfully!");
+                    alert("Workshop Conductor Update Successfully!");
                     window.location.reload();
                 })
                 .catch((err) =>{
