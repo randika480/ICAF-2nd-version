@@ -53,7 +53,7 @@ const Research = (props) => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Button variant="danger" href={research.paperSecURL}>
-                  Download Workshop Proposal
+                  Download Research paper
                 </Button>{" "}
               </ListGroup.Item>
             </ListGroup>
