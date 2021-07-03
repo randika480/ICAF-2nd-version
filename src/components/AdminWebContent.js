@@ -38,8 +38,8 @@ const AdminWebContent = () => {
           config
         )
         .then((res) => {
-          // window.location.reload(false);
           alert("deleted");
+          window.location.reload(false);
         });
     } catch (err) {
       alert("error" + err);
@@ -122,8 +122,7 @@ const AdminWebContent = () => {
           config
         )
         .then(() => {
-          // window.location.reload(false);
-          alert("ok");
+          window.location.reload(false);
         });
     } catch (err) {
       alert("error :" + err);
@@ -165,7 +164,10 @@ const AdminWebContent = () => {
     };
     try {
       await axios
-        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getGalleryImages", config)
+        .get(
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getGalleryImages",
+          config
+        )
         .then((res) => {
           setGalleryImg(res.data.gallery);
         })
@@ -185,12 +187,14 @@ const AdminWebContent = () => {
     };
     try {
       await axios
-        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getNotification", config)
+        .get(
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getNotification",
+          config
+        )
         .then((res) => {
           for (let i = 0; i < res.data.notifications.length; i++) {
             if (res.data.notifications[i].subject.includes("Request")) {
               setNotifications(res.data.notifications[i]);
-              // alert(res.data.notifications[i]);
               delNotifications.push(res.data.notifications[i]);
             }
           }
@@ -199,7 +203,6 @@ const AdminWebContent = () => {
             let temp = delNotifications[i].description.split(": ");
 
             id = temp[1].split(" ");
-            alert(id[0]);
             ids.push(id[0]);
           }
         })
@@ -219,7 +222,10 @@ const AdminWebContent = () => {
     };
     try {
       await axios
-        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getHomeContent", config)
+        .get(
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getHomeContent",
+          config
+        )
         .then((res) => {
           sethomenotice(res.data.homenotices);
         })
@@ -262,7 +268,10 @@ const AdminWebContent = () => {
     };
     try {
       await axios
-        .get("https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getNewsTimelines", config)
+        .get(
+          "https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/getNewsTimelines",
+          config
+        )
         .then((res) => {
           settimeline(res.data.newsTimelineData);
         })
@@ -384,7 +393,9 @@ const AdminWebContent = () => {
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>
-                    <th><p>Waiting For Approval</p></th>
+                      <th>
+                        <p>Waiting For Approval</p>
+                      </th>
                     </tr>
                     <tr>
                       <th>id</th>
@@ -448,7 +459,9 @@ const AdminWebContent = () => {
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>
-                    <th><p>Approved and Rejected</p></th>
+                      <th>
+                        <p>Approved and Rejected</p>
+                      </th>
                     </tr>
                     <tr>
                       <th>id</th>
@@ -502,7 +515,9 @@ const AdminWebContent = () => {
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>
-                    <th><p>Waiting For Approval</p></th>
+                      <th>
+                        <p>Waiting For Approval</p>
+                      </th>
                     </tr>
                     <tr>
                       <th>id</th>
@@ -621,7 +636,9 @@ const AdminWebContent = () => {
                 <Table striped bordered hover variant="dark">
                   <thead>
                     <tr>
-                    <th><p> Waiting For Approval</p></th>
+                      <th>
+                        <p> Waiting For Approval</p>
+                      </th>
                     </tr>
                     <tr>
                       <th>id</th>

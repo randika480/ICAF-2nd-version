@@ -18,11 +18,11 @@ const AdminDeleteRequest = (props) => {
     try {
       await axios
         .delete(
-          `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteHomeContent/${nID}`,config
+          `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteHomeContent/${nID}`,
+          config
         )
         .then((res) => {
           ignore(id);
-        
         });
     } catch (err) {
       alert("error" + err);
@@ -30,26 +30,24 @@ const AdminDeleteRequest = (props) => {
   };
 
   const deleteTimeLine = async (id) => {
-    
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
       },
     };
     const nID = id;
-    
-   
-      await axios
-        .delete(
-          `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteTimelines/${nID}`,config
-        )
-        .then((res) => {
-          ignore(id);
-        
-        }).catch(error =>{
-          alert(error)
-        })
-  
+
+    await axios
+      .delete(
+        `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteTimelines/${nID}`,
+        config
+      )
+      .then((res) => {
+        ignore(id);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   const deleteUserGuide = async (id) => {
@@ -59,15 +57,15 @@ const AdminDeleteRequest = (props) => {
       },
     };
     const nID = id;
- 
+
     try {
       await axios
         .delete(
-          `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteUserGuidContent/${nID}`,config
+          `https://icaf-backend-grid.herokuapp.com/grid/api/adminpvt/deleteUserGuidContent/${nID}`,
+          config
         )
         .then((res) => {
           ignore(id);
-          
         });
     } catch (err) {
       alert("error" + err);
@@ -76,27 +74,26 @@ const AdminDeleteRequest = (props) => {
 
   const ignore = (id) => {
     for (let i = 0; i < props.delNotifications.length; i++) {
-      if (props.delNotifications[i].description.includes(id)) {        
+      if (props.delNotifications[i].description.includes(id)) {
         setIgnoreId(props.delNotifications[i]._id);
         ignoreRequest(props.delNotifications[i]._id);
-        
       }
     }
   };
 
   const ignoreRequest = async (delId) => {
-    alert("delId"+delId)
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
       },
     };
     const nID = delId;
-    alert("delId"+nID)
+
     try {
       await axios
         .delete(
-          `https://icaf-backend-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`, config
+          `https://icaf-backend-grid.herokuapp.com/grid/api/notifi/deleteNotification/${nID}`,
+          config
         )
         .then((res) => {
           window.location.reload(false);
@@ -110,7 +107,7 @@ const AdminDeleteRequest = (props) => {
     <div>
       <div>
         <h1>Delete Requests</h1>
-        
+
         {props.delNotifications.length > 0 && (
           <div>
             <Row>
@@ -200,7 +197,7 @@ const AdminDeleteRequest = (props) => {
               <br />
               <Table striped bordered hover variant="dark">
                 <thead>
-                  <tr >
+                  <tr>
                     <th>id</th>
                     <th>Status</th>
                     <th>Title</th>
@@ -335,7 +332,9 @@ const AdminDeleteRequest = (props) => {
           </div>
         )}
 
-        {props.delNotifications.length < 1 && <div>There are no any Delete Requests</div>}
+        {props.delNotifications.length < 1 && (
+          <div>There are no any Delete Requests</div>
+        )}
       </div>
     </div>
   );

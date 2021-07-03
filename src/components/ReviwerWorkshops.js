@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Button, Divider } from "antd";
+import { Button, Divider, Row, Col } from "antd";
 import { Table } from "react-bootstrap";
 
 
@@ -97,6 +97,10 @@ const ReviwerWorkshops = (props) => {
                       </tr>
                     </tbody>
                   </Table>
+                  <Row>
+  <Col span={8}>
+ 
+
                    
                     <Button
                       type="primary"
@@ -105,7 +109,8 @@ const ReviwerWorkshops = (props) => {
                     >
                       Download Workshop Proposal
                     </Button>{" "}
-<Divider />
+                    </Col>
+                    <Col span={10}>
                     {props.conference && (<div>
                     <Button
                       type="primary"
@@ -125,7 +130,8 @@ const ReviwerWorkshops = (props) => {
                       Reject
                     </Button>{" "} </div>
                     )}
-
+</Col>
+</Row>
                     {!props.conference && (
                       <div style={{ backgroundColor: "red" }}>
                         
@@ -183,6 +189,12 @@ const ReviwerWorkshops = (props) => {
                       </tr>
                     </tbody>
                   </Table>
+
+
+                  <Row>
+  <Col span={8}>
+  
+
                     <Button
                       type="primary"
                       danger
@@ -190,7 +202,9 @@ const ReviwerWorkshops = (props) => {
                     >
                       Download Workshop Proposal
                     </Button>{" "}
-                    <Divider />
+                    </Col>
+                    <Col span={10}>
+
                     {props.conference && (<div>
                     {WorkshopData.status === "rejectedbyreviewer" && (
                       <Button
@@ -213,9 +227,11 @@ const ReviwerWorkshops = (props) => {
                         Reject
                       </Button>
                     )}{" "} </div>)}
+                    </Col></Row>
                     <Divider />
                   </div>
                 ))}
+                
               <Divider />
             </div>
           ))}

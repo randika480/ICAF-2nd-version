@@ -18,6 +18,7 @@ const Addresarchppr = (props) => {
 
   
   const addresearchdata = async () => {
+    alert("hi")
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -40,8 +41,8 @@ const Addresarchppr = (props) => {
           config
         )
         .then((res) => {
-          alert("research data Update Successfully!");
-          window.location.reload();
+          alert("research data added Successfully!");
+          // window.location.reload();
         })
         .catch((err) => {
           alert(err);

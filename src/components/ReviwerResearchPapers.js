@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Button, Divider } from "antd";
+import { Button, Divider, Row, Col } from "antd";
 import { Table } from "react-bootstrap";
 
 const ReviwerResearchPapers = (props) => {
@@ -102,40 +102,51 @@ const ReviwerResearchPapers = (props) => {
                         </tr>
                       </tbody>
                     </Table>
-                    <Button type="primary" danger href={rPaperData.paperSecURL}>
-                      Download Research Paper
-                    </Button>{" "}
-                    <Divider />
-                    {props.conference && (<div>
-                    <Button
-                      type="primary"
-                      onClick={() => {
-                        approve(
-                          rPaperData._id,
-                          "approvedbyreviewer",
-                          rPaper._id
-                        );
-                      }}
-                    >
-                      Approve
-                    </Button>{" "}
-                    <Button
-                      type="primary"
-                      danger
-                      onClick={() => {
-                        approve(
-                          rPaperData._id,
-                          "rejectedbyreviewer",
-                          rPaper._id
-                        );
-                      }}
-                    >
-                      Reject
-                    </Button>{" "}  </div>
-                    )}
+
+                    <Row>
+                      <Col span={8}>
+                        <Button
+                          type="primary"
+                          danger
+                          href={rPaperData.paperSecURL}
+                        >
+                          Download Research Paper
+                        </Button>{" "}
+                      </Col>
+                      <Col span={10}>
+                        {props.conference && (
+                          <div>
+                            <Button
+                              type="primary"
+                              onClick={() => {
+                                approve(
+                                  rPaperData._id,
+                                  "approvedbyreviewer",
+                                  rPaper._id
+                                );
+                              }}
+                            >
+                              Approve
+                            </Button>{" "}
+                            <Button
+                              type="primary"
+                              danger
+                              onClick={() => {
+                                approve(
+                                  rPaperData._id,
+                                  "rejectedbyreviewer",
+                                  rPaper._id
+                                );
+                              }}
+                            >
+                              Reject
+                            </Button>{" "}
+                          </div>
+                        )}
+                      </Col>
+                    </Row>
                     {!props.conference && (
                       <div style={{ backgroundColor: "red" }}>
-                       
                         <h4 style={{ color: "white" }}>
                           You can not approve this now because conference
                           currently not awailable
@@ -197,44 +208,55 @@ const ReviwerResearchPapers = (props) => {
                         </tr>
                       </tbody>
                     </Table>
-                    <Button type="primary" danger href={rPaperData.paperSecURL}>
-                      Download Research Paper
-                    </Button>{" "}
-                    <Divider />
-                    {props.conference && (
-                      <div>
-                        {rPaperData.status === "rejectedbyreviewer" && (
-                          <Button
-                            type="primary"
-                            onClick={() => {
-                              approve(
-                                rPaperData._id,
-                                "approvedbyreviewer",
-                                rPaper._id
-                              );
-                            }}
-                          >
-                            Approve
-                          </Button>
-                        )}{" "}
-                        {rPaperData.status === "approvedbyreviewer" && (
-                          <Button
-                            type="primary"
-                            danger
-                            onClick={() => {
-                              approve(
-                                rPaperData._id,
-                                "rejectedbyreviewer",
-                                rPaper._id
-                              );
-                            }}
-                          >
-                            Reject
-                          </Button>
-                        )}{" "}
-                      </div>
-                    )}
-                 
+
+                    <Row>
+                      <Col span={6}>
+                        {" "}
+                        <Button
+                          type="primary"
+                          danger
+                          href={rPaperData.paperSecURL}
+                        >
+                          Download Research Paper
+                        </Button>{" "}
+                      </Col>
+                      <Col span={12}>
+                        {props.conference && (
+                          <div>
+                            {rPaperData.status === "rejectedbyreviewer" && (
+                              <Button
+                                type="primary"
+                                onClick={() => {
+                                  approve(
+                                    rPaperData._id,
+                                    "approvedbyreviewer",
+                                    rPaper._id
+                                  );
+                                }}
+                              >
+                                Approve
+                              </Button>
+                            )}{" "}
+                            {rPaperData.status === "approvedbyreviewer" && (
+                              <Button
+                                type="primary"
+                                danger
+                                onClick={() => {
+                                  approve(
+                                    rPaperData._id,
+                                    "rejectedbyreviewer",
+                                    rPaper._id
+                                  );
+                                }}
+                              >
+                                Reject
+                              </Button>
+                            )}{" "}
+                          </div>
+                        )}
+                      </Col>
+                    </Row>
+
                     <Divider />
                   </div>
                 ))}

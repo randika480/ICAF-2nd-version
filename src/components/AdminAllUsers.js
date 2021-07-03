@@ -7,7 +7,7 @@ const AdminAllUsers = (props) => {
   const [visible2, setVisible2] = React.useState(false);
   const [visible3, setVisible3] = React.useState(false);
   const [confirmLoading, setConfirmLoading] = React.useState(false);
-  // const [modalText, setModalText] = React.useState("");
+
 
   const [searchTerm, setsearchTerm] = useState("");
 
@@ -24,7 +24,7 @@ const AdminAllUsers = (props) => {
   };
 
   const handleOk = () => {
-    // setModalText("The modal will be closed after two seconds");
+  
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible(false);
@@ -32,7 +32,7 @@ const AdminAllUsers = (props) => {
     });
   };
   const handleOk2 = () => {
-    // setModalText("The modal will be closed after two seconds");
+  
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible2(false);
@@ -41,7 +41,7 @@ const AdminAllUsers = (props) => {
   };
 
   const handleOk3 = () => {
-    // setModalText("The modal will be closed after two seconds");
+   
     setConfirmLoading(true);
     setTimeout(() => {
       setVisible3(false);
@@ -176,15 +176,15 @@ const AdminAllUsers = (props) => {
           />
           <br />
           {props.user
-            // .filter((val) => {
-            //   if (searchTerm === "") {
-            //     return val;
-            //   } else if (
-            //     val.username.toLowerCase().includes(searchTerm.toLowerCase())
-            //   ) {
-            //     return val;
-            //   }
-            // })
+            .filter((val) => {
+              if (searchTerm === "") {
+                return val;
+              } else if (
+                val.username.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return val;
+              }
+            })
             .filter((wrk) => wrk.role === "workshop conductor")
             .map((users, index) => (
               <div key={index}>
@@ -225,15 +225,15 @@ const AdminAllUsers = (props) => {
           />
           <br />
           {props.user
-            // .filter((val) => {
-            //   if (searchTerm === "") {
-            //     return val;
-            //   } else if (
-            //     val.username.toLowerCase().includes(searchTerm.toLowerCase())
-            //   ) {
-            //     return val;
-            //   }
-            // })
+            .filter((val) => {
+              if (searchTerm === "") {
+                return val;
+              } else if (
+                val.username.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return val;
+              }
+            })
             .filter((wrk) => wrk.role === "attendee")
             .map((users, index) => (
               <div key={index}>
