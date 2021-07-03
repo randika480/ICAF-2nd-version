@@ -60,11 +60,11 @@ function Research({ id }) {
     <div className="lkresearch">
       <Container>
         {research
-          .filter((pay) => pay.payment === "payementsuccessfull")
           .map((item, researchpp) => {
             return (
+      
               <div key={researchpp}>
-                {item.payment === "payementsuccessfull" && (
+                {item.payment === "payementsuccessfull" && item.status === "approvedbyreviewer" && (
                   <Card
                     className="lkcardreserch"
                     hoverable
@@ -81,6 +81,7 @@ function Research({ id }) {
                   </Card>
                 )}
               </div>
+
             );
           })}
       </Container>
