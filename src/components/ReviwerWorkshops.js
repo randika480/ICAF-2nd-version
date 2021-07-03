@@ -57,15 +57,16 @@ const ReviwerWorkshops = (props) => {
       </Button>{" "}
       {pendingDiv && (
         <div>
+          <Divider />
           {props.workshopData.map((Workshop, index) => (
             <div key={index}>
               {Workshop.workshopData
                 .filter((wrk) => wrk.status === "pending")
                 .map((WorkshopData, index) => (
                   <div key={index}>
-                    <h4>Workshop Conductor </h4>
                     <p>Workshop Conducror ID : {Workshop._id}</p>
                     <p>Username : {Workshop.username}</p>
+
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>
@@ -154,15 +155,16 @@ const ReviwerWorkshops = (props) => {
       )}
       {approvedDiv && (
         <div>
+          <Divider />
           {props.workshopData.map((Workshop, index) => (
             <div key={index}>
               {Workshop.workshopData
                 .filter((wrk) => wrk.status !== "pending")
                 .map((WorkshopData, index) => (
                   <div key={index}>
-                    <h4>Workshop Conductor </h4>
                     <p>Workshop Conductor ID : {Workshop._id}</p>
                     <p>Username : {Workshop.username}</p>
+
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>

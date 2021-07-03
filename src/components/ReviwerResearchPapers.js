@@ -57,15 +57,16 @@ const ReviwerResearchPapers = (props) => {
       </Button>{" "}
       {pendingDiv && (
         <div>
+          <Divider />
           {props.rPaperData.map((rPaper, index) => (
             <div key={index}>
               {rPaper.researchData
                 .filter((wrk) => wrk.status === "pending")
                 .map((rPaperData, index) => (
                   <div key={index}>
-                    <h4>Researcher </h4>
                     <p>Researcher ID : {rPaper._id}</p>
                     <p>Username : {rPaper.username}</p>
+
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>
@@ -155,22 +156,22 @@ const ReviwerResearchPapers = (props) => {
                     <Divider />
                   </div>
                 ))}
-              <Divider />
             </div>
           ))}
         </div>
       )}
       {approvedDiv && (
         <div>
+          <Divider />
           {props.rPaperData.map((rPaper, index) => (
             <div key={index} key={index}>
               {rPaper.researchData
                 .filter((wrk) => wrk.status !== "pending")
                 .map((rPaperData, index) => (
                   <div key={index}>
-                    <h4>Researcher </h4>
                     <p>Researcher ID : {rPaper._id}</p>
                     <p>Username : {rPaper.username}</p>
+
                     <Table striped bordered hover variant="dark">
                       <tbody>
                         <tr>
