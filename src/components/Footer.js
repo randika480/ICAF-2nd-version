@@ -55,7 +55,7 @@ const Footer = () => {
               </li>
               <li>
                 {" "}
-                <Link to="#support">Support</Link>
+                <Link to="/userguide">Support</Link>
               </li>
             </ul>
           </div>
