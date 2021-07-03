@@ -18,7 +18,7 @@ const Addresarchppr = (props) => {
 
   
   const addresearchdata = async () => {
-    alert("hi")
+
     const config = {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
